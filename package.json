@@ -1,0 +1,52 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next -p 80",
+    "build": "next build",
+    "start": "next start -p 80",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@types/node": "^17.0.8",
+    "@types/react": "^17.0.38",
+    "date-fns": "^2.28.0",
+    "eslint": "^8.6.0",
+    "fs": "^0.0.1-security",
+    "next": "^12.0.7",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-modern-drawer": "^1.0.1",
+    "react-share": "^4.4.0",
+    "react-twitter-widgets": "^1.10.0",
+    "remark": "^14.0.2",
+    "remark-breaks": "^3.0.2",
+    "remark-code-titles": "^0.1.2",
+    "remark-external-links": "^9.0.1",
+    "remark-gfm": "^3.0.1",
+    "remark-highlight.js": "^7.0.1",
+    "remark-html": "^15.0.1",
+    "remark-slug": "^7.0.1",
+    "remark-toc": "^8.0.1",
+    "sass": "^1.46.0",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "gray-matter": "^4.0.3"
+  }
+}

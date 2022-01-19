@@ -1,0 +1,351 @@
+.search_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none !important;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  .search_bar, .search_button {
+    height: 2vw;
+  }
+  
+  .search_bar {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none !important;
+    background: #fff;
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 20vw;
+    padding-left: 0.5vw;
+  
+    &::placeholder, &::-webkit-input-placeholder {
+      font-size: 1vw;
+    }
+  
+    &:focus {
+      outline: none !important;
+    }
+  }
+  
+  .search_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: linear-gradient(to right, #167df3, #00abfb);
+    border: none;
+    border-radius: 0px 20px 20px 0px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  
+    &:hover {
+      background: linear-gradient(to top, #2c7af8, #18a5f7);
+      box-shadow: 0 4px 15px #5c90f1 c9;
+    }
+}
+
+.aaa{
+    font-size: 20px;
+}
+  
+.article_list {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1vw;
+  width: 100%;
+  h1 {
+    margin: 0;
+    font-size: 3vw;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+  }
+}
+  
+.article {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    word-break: break-all;
+    align-items: center;
+    padding: 1vw 0.5vw;
+    margin: 0;
+    gap: 0.5vw;
+    width: 100%;
+    height: auto;
+    background: #FFF;
+    color: #000;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease 0s;
+    &:hover {
+      transform: scale(1.0075, 1.0075);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      text-decoration: none;
+    }
+    &:visited {
+      color: #000;
+      text-decoration: none;
+    }
+    .article_icon {
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 0;
+      font-size: 10vw;
+    }
+    div {
+      color: #000;
+      h1 {
+        font-size: 2vw;
+        color: #000;
+        margin: 0;
+        text-align: left;
+        &:hover {
+          text-decoration: none;
+        }
+        &:visited {
+          color: #000;
+        }
+      }
+  
+      p, time {
+        margin: 0;
+        font-size: 1.1vw;
+        word-break: break-all;
+        -webkit-line-clamp: 2; // 2行以上になったら3点リード。ここの数字はお好みで調整。
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        &:visited {
+          color: #000;
+        }
+      }
+      time {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  
+  
+  .category_tags {
+    display: flex;
+    gap: 5px;
+    padding: 7px 0;
+    color: #FFF;
+    a {
+      color: #FFF;
+    }
+  }
+  
+  .category_tag {
+    display: flex;
+    font-size: 1vw;
+    padding: 0.5vw;
+    background: linear-gradient(to right, #167df3, #00abfb);
+    box-shadow: 0 4px 15px #5D8BDE;
+    color: #FFF;
+    &:visited {
+      color: #FFF;
+    }
+    border-radius: 25px;
+    position: relative;
+    transition: all 0.3s ease 0s;
+  
+    &:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(to right, #0b66f7, #0082fb);
+    }
+  }
+  
+  
+
+
+
+
+.others_card {
+    width: 15vw;
+    height: 15vw;
+    padding: 0.3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    p {
+      text-align: center;
+      width: 100%;
+      margin: 0;
+      font-size: 2vw;
+      font-family: ubuntu, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      align-items: center;
+      color: #3a3a3a;
+    }
+    .p_ja {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 500;
+    }
+  }
+  
+  .title_category_tag {
+    align-items: center;
+    height: 30%;
+    margin: 7px 5px 7px 0;
+}
+
+.others_icon {
+    font-size: 7vw;
+}
+
+
+
+
+.error_text {
+  font-size: 2vw;
+}
+
+
+
+
+  .error_search {
+    margin: 0;
+    width: 100%;
+    height: 3vw;
+
+    .not_sea_btn {
+      width: 93%;
+      height: 100%;
+    }
+
+    .search_button {
+      width: 7%;
+      height: 100%;
+    }
+  }
+.error_img {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  margin: 0 auto;
+}
+
+.error_tips {
+  width: 100%;
+
+  h2 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 2.5vw;
+    margin: 0.5vw auto;
+    border-left: 7px solid #0b66f7;
+    background: rgb(240, 240, 240);
+    width: 100%;
+  }
+}
+
+
+
+@media (max-width: 500px) {
+    .side_panel {
+      display: none;
+    }
+    .search_bar {
+      width: 20vw;
+      padding-left: 2vw;
+    
+      &::placeholder {
+        font-size: 4vw;
+      }
+      &::-webkit-input-placeholder{
+        font-size: 4vw;
+      }
+    }
+    .search_button {
+      width: 10vw;
+      padding: 2% 5%;
+    }
+    .error_search_button {
+      width: 15vw;
+      padding: 2% 5%;
+    }
+    .others_card {
+    width: 60vw;
+    height: 60vw;
+    }
+
+    .article_list {
+      h1 {
+        font-size: 12vw;
+      }
+    }
+
+    .article {
+      margin: 0;
+      padding: 2vw 2vw;
+      gap: 2vw;
+      &:active {
+        transform: translateY(-5px);
+      }
+      .article_icon {
+        font-size: 30vw;
+      }
+      font-size: 20vw;
+      div {
+        h1 {
+          font-size: 5.5vw;
+        }
+        p, time {
+          font-size: 3vw;
+          word-break: break-all;
+        }
+      }
+    }
+    .category_tag {
+      font-size: 3.5vw;
+      padding: 1vw;
+      &:active {
+        background: linear-gradient(to right, #0b66f7, #0082fb);
+      }
+    }
+    .others_card {
+      p {
+        font-size: 9vw;
+      }
+    }
+  
+    .error_text {
+      font-size: 3.7vw;
+    }
+    .article_list {
+      gap: 5vw;
+      .search_container {
+        margin: 5px;
+        height: 8vw;
+      }
+    }
+    .pages_link_div {
+      gap: 2vw;
+      height: 10vw;
+      .page_link {
+        font-size: 5vw;
+        width: 10vw;
+        height: 10vw;
+      }
+    }
+
+    .others_icon {
+        font-size: 40vw;
+    }
+}
