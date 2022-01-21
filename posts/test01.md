@@ -1,10 +1,11 @@
 ---
 title: 'アイコンとか適当'
-date: '2022-01-15'
+time: '2022-01-15'
 update_date: "2022-01-15"
 janle: "プログラミング"
 category: "Python"
 detail: "アイコンとか適当"
+sns_detail: "テスト"
 ---
 
 みなさんこんにちは。

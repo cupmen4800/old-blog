@@ -14,21 +14,28 @@ import { faYoutube, faTwitter, faInstagram, faPython, faNodeJs, faReact, faAws, 
 
 const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {allPostsData: Array<postDataResult>}) => {
   return (
-        <div className={`${Articles_styles.article_list}`}>
-          {allPostsData.map(({ id, data }) => (
-          <Link href={`/article/${id}`}><a className={Articles_styles.article} key={id}>
-            <FontAwesomeIcon icon={faPython} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
-            <div><h1 className={styles.source_han_sans_bold}>{ data.title }</h1>
-              <p className={styles.source_han_sans_light}>投稿日： 更新日:</p>
-              <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-                <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ data.janle }</a></Link>
-                <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ data.category }</a></Link>
-              </div>
-              <p className={styles.source_han_sans_light}>{ data.detail }</p>
-            </div>
-          </a></Link>
-          ))}
-      </div>
+    <>
+    <Head>
+      <title>LOGO</title>
+    </Head>
+    <div className={`${Articles_styles.article_list}`}>
+    {allPostsData.map(({ id, data }) => (
+    <>
+      <Link href={`/article/${id}`}><a className={Articles_styles.article} key={id}>
+        <FontAwesomeIcon icon={faPython} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
+        <div><h1 className={styles.source_han_sans_bold}>{ data.title }</h1>
+          <p className={styles.source_han_sans_light}>投稿日： {data.time}</p>
+          <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
+            <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ data.janle }</a></Link>
+            <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ data.category }</a></Link>
+          </div>
+          <p className={styles.source_han_sans_light}>{ data.detail }</p>
+        </div>
+      </a></Link>
+    </>
+    ))}
+    </div>
+    </>
   )
 }
 

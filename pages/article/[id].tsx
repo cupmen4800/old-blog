@@ -33,7 +33,7 @@ const Post:NextPage<{postData:postData}> = ({postData}:{postData:postData}) => {
     return (
     <>
         <Head>
-          <title>{postData.title}</title>
+          <title>{postData.title} - LOGO</title>
         </Head>
         <article className={`${Article_styles.article}`}>
           <h1 >{postData.title}</h1>
