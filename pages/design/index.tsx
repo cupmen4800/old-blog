@@ -12,16 +12,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCode, faPaintBrush, faSearch, faKeyboard, faQuestion, faUser, faImage, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { faYoutube, faTwitter, faInstagram, faPython, faNodeJs, faReact, faAws, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-
 const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {allPostsData: Array<postDataResult>}) => {
-  return (
-    <>
-    <Head>
-      <title>LOGO</title>
-    </Head>
-    <div className={`${Articles_styles.article_list}`}>
-      <h2 className={Articles_styles.home_h2}>Home</h2>
-    {allPostsData.map(({ id, data }) => (
+  const filter = allPostsData.filter(x => x.data.janle === "design")
+  const Python_Article = filter.map(({ id, data }) => (
     <>
       <Link href={`/article/${id}`}><a className={Articles_styles.article} key={data.date}>
         <object type="image/svg+xml" data={`/storage/img/janle-icon/${data.category}.svg`} className={`${Articles_styles.article_icon}`}/>
@@ -35,7 +28,15 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
         </div>
       </a></Link>
     </>
-    ))}
+    ))
+  return (
+    <>
+    <Head>
+      <title>LOGO</title>
+    </Head>
+    <div className={`${Articles_styles.article_list}`}>
+      <h2 className={Articles_styles.home_h2}>デザイン</h2>
+      {Python_Article}
     </div>
     </>
   )

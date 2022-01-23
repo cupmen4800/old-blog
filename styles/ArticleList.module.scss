@@ -48,7 +48,7 @@
   
     &:hover {
       background: linear-gradient(to top, #2c7af8, #18a5f7);
-      box-shadow: 0 4px 15px #5c90f1 c9;
+      box-shadow: 0 4px 15px #5c90f1;
     }
 }
 
@@ -63,13 +63,17 @@
   justify-content: center;
   gap: 1vw;
   width: 100%;
-  h1 {
-    margin: 0;
-    font-size: 3vw;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-  }
+}
+
+.home_h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 3vw;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
 }
   
 .article {
@@ -99,10 +103,9 @@
       text-decoration: none;
     }
     .article_icon {
-      display: flex;
-      align-items: center;
       margin: 0 0 0 0;
-      font-size: 10vw;
+      width: 10vw;
+      height: 11vw;
     }
     div {
       color: #000;
@@ -299,7 +302,8 @@
         transform: translateY(-5px);
       }
       .article_icon {
-        font-size: 30vw;
+        width: 30vw;
+        height: 35vw;
       }
       font-size: 20vw;
       div {

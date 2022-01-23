@@ -10,3 +10,12 @@ a {
 * {
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  background: none;
+  box-shadow:0 0 5px #5d8ade79 inset ;
+  width: 0.6vw;
+}
+::-webkit-scrollbar-thumb {
+  background: #aeaeae;
+  border-radius: 20px;
+}

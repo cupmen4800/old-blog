@@ -2,6 +2,7 @@ import Head from 'next/head'
 import {getAllPostIds, getPostData} from 'lib/posts'
 import { postData,staticPaths, staticProps } from 'interfaces'
 import { NextPage } from 'next'
+import Date from 'components/Date'
 import Article_styles from 'styles/Article.module.scss';
 import {
     FacebookShareButton,
@@ -37,7 +38,7 @@ const Post:NextPage<{postData:postData}> = ({postData}:{postData:postData}) => {
         </Head>
         <article className={`${Article_styles.article}`}>
           <h1 >{postData.title}</h1>
-          <p className={`${Article_styles.time}`}>投稿日: <time>{postData.time}</time></p>
+          <p className={`${Article_styles.time}`}>投稿日: <Date dateString={postData.date} /></p>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
           <div className={`${Article_styles.sns_share_div}`}>
             <TwitterShareButton url={`https://localhost/article/${postData.id}`} title={postData.sns_detail}>

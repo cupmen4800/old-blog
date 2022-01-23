@@ -2,7 +2,7 @@
   h1 {
     font-weight: 700;
     font-size: 3.5vw;
-    margin: 0 0.5vw;
+    margin: 0;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
 }
@@ -10,7 +10,7 @@ h2 {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
     font-size: 2.5vw;
-    margin: 0.5vw;
+    margin: 0.5vw 0;
     border-left: 7px solid #3885ff;
     background: #f0f0f0;
     width: 100%;
@@ -25,7 +25,7 @@ h3 {
 }
 p {
     font-size: 1.2vw;
-    margin: 0.5vw;
+    margin: 0.5vw 0;
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 300;
     letter-spacing: 0.07vw;
@@ -42,6 +42,9 @@ p {
 a {
   text-decoration: none;
   color: #0070f3;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 iframe {
     border: none;
@@ -62,6 +65,7 @@ ul {
 }
 img {
   width: 75%;
+  padding: 0.5vw 0;
 }
 code {
   background: #e2e2e2;
@@ -159,6 +163,7 @@ table {
   }
   img {
     width: 100%;
+    padding: 3vw 0;
   }
   table {
     margin: 0.5vw;
@@ -187,7 +192,15 @@ table {
   }
 }
 .sns_share_div {
-  margin: 0 0.5vw;
+  margin: 0;
   display: flex;
-  gap: 5px;
+  gap: 0.8vw;
+  button {
+    width: 3vw;
+    height: 3vw;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

@@ -52,18 +52,22 @@ export const getPostData = async (id:string):Promise<postData> => {
     .process(matterResult.content)
     const contentHtml = processedContent.toString()
     const title = matterResult.data.title
-    const time = matterResult.data.time
+    const date = matterResult.data.date
     const janle = matterResult.data.janle
+    const view_janle = matterResult.data.janle
     const category = matterResult.data.category
+    const view_category = matterResult.data.category
     const detail = matterResult.data.detail
     const sns_detail = matterResult.data.sns_detail
     return {
         id,
         contentHtml,
         title,
-        time,
+        date,
         janle,
+        view_janle,
         category,
+        view_category,
         detail,
         sns_detail
     }

@@ -1,31 +1,13 @@
 ---
-title: 'アイコンとか適当'
-time: '2022-01-15'
-update_date: "2022-01-15"
-janle: "プログラミング"
-category: "Python"
-detail: "アイコンとか適当"
+title: 'Youtubeでの検索流入について(Youtubeすぐやめたけど)'
+date: '2022-01-18'
+update_date: "2022-01-18"
+janle: "seo"
+view_janle: "SEO"
+category: "youtube"
+view_category: "Youtube"
+detail: "ああああああああああああああああああああああああ"
 sns_detail: "テスト"
 ---
 
-みなさんこんにちは。
-cupmen4800です。
-今回はPythonでYoutubeから情報を収集していきたいと思います(ウェブから情報を収集することをwebスクレイピングと言います。)。
-Youtubeから情報を収集する方法は3つほどあります。
-
-- Youtube公式API
-- Seleniumというライブラリを使う
-
-それぞれのメリット・デメリット
-
-- API
-  - メリット
-    - 公認だから止められることがない。
-    - 実装がかんたん
-    - どの言語でも使える。(JS Ruby Goなど)
-  - デメリット
-    - 公認だからこそちょっと遅い場合がある
-    - 更新が必要(自動で更新できる)
-- Selenium
-  - メリット
-    - どのサイトでも使える
+TESTTESTTESTTEST

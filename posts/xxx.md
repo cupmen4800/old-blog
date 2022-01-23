@@ -1,11 +1,11 @@
 ---
-title: 'Chromeの新しいタブ作った!!'
-date: '2022-01-15'
-update_date: "2022-01-15"
+title: 'aaa'
+date: '2022-01-17'
+update_date: "2022-01-17"
 janle: "programming"
 view_janle: "プログラミング"
-category: "python"
-view_category: "Python"
+category: "node.js"
+view_category: "Node.JS"
 detail: "今回はYoutube APIを使ってYoutubeから競合の情報などを調べるプログラムを作っていきたいと思います。"
 sns_detail: "テスト"
 ---

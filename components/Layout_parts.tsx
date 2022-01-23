@@ -38,11 +38,11 @@ export function Header() {
         <Link href="/"><a className={`${header_styles.header_title} ${styles.ubuntu_bold}`}><span>LOGO</span></a></Link>
         <nav className={header_styles.nav}>
         <ul className={header_styles.nav}>
-            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="https://google.com"><a className={`${styles.ubuntu_light}`}>Programming</a></Link></li>
-            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="https://google.com"><a className={`${styles.ubuntu_light}`}>Design</a></Link></li>
-            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="https://google.com"><a className={`${styles.ubuntu_light}`}>SEO</a></Link></li>
-            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="https://google.com"><a className={`${styles.ubuntu_light}`}>Youtube</a></Link></li>
-            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/janle/all"><a className={`${styles.ubuntu_light}`}>All</a></Link></li>
+            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/programming"><a className={`${styles.ubuntu_light}`}>Programming</a></Link></li>
+            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/design"><a className={`${styles.ubuntu_light}`}>Design</a></Link></li>
+            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/seo"><a className={`${styles.ubuntu_light}`}>SEO</a></Link></li>
+            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/"><a className={`${styles.ubuntu_light}`}>Youtube</a></Link></li>
+            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/all"><a className={`${styles.ubuntu_light}`}>All</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/about"><a className={`${styles.ubuntu_light}`}>About</a></Link></li>
             <form method="get" action="#" className={`${header_styles.search_container} ${header_styles.pc_view_search_container}`}>
                 <input className={header_styles.search_bar} type="text" placeholder="Search" />
@@ -76,7 +76,7 @@ export function Header() {
             <Link href="https://google.com"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>Programming</a></Link>
             <Link href="https://google.com"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>Design</a></Link>
             <Link href="https://google.com"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>SEO</a></Link>
-            <Link href="/janle/all"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>All</a></Link>
+            <Link href="/all"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>All</a></Link>
             <Link href="/about"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>about</a></Link>
             </nav>
         </Drawer>
@@ -108,17 +108,17 @@ export function Footer() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/">
+                    <Link href="/programming">
                         <a className={`${footer_styles.footer_nav_link} ${styles.ubuntu_medium}`}>Programming</a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/">
+                    <Link href="/design">
                         <a className={`${footer_styles.footer_nav_link} ${styles.ubuntu_medium}`}>Design</a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/">
+                    <Link href="/seo">
                         <a className={`${footer_styles.footer_nav_link} ${styles.ubuntu_medium}`}>SEO</a>
                     </Link>
                 </li>
@@ -128,7 +128,7 @@ export function Footer() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="https://twitter.com/cupmen4800">
+                    <Link href="https://twitter.com/">
                         <a className={`${footer_styles.footer_nav_link} ${styles.ubuntu_medium}`}>Twitter</a>
                     </Link>
                 </li>
@@ -138,7 +138,7 @@ export function Footer() {
                     </Link>
                 </li>
                 <li>
-                    <small className={`${footer_styles.footer_nav_link} ${styles.ubuntu_medium}`}>© 2021 LOGO.</small>
+                    <small className={`${footer_styles.footer_nav_link} ${styles.ubuntu_medium}`}>© 2022 LOGO.</small>
                 </li>
             </nav>
         </footer>
@@ -172,84 +172,6 @@ export function Side() {
 }
 
 
-
-{/* article_list関数 */}
-
-export function Article_List() {
-    return(
-        <>
-        <div className={`${Articles_styles.article_list}`}>
-            <Link href="/article/aaa"><a className={Articles_styles.article}>
-            <FontAwesomeIcon icon={faPython} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
-            <div><h1 className={styles.source_han_sans_bold}>PythonでWeb操作をしよう!</h1>
-                    <p>2021.12.4</p>
-                    <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>プログラミング</a></Link>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>Python</a></Link>
-                    </div>
-                    <p>TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT</p>
-            </div></a></Link>
-                <Link href="https://google.com"><a href="https://google.com" className={Articles_styles.article}>
-            <FontAwesomeIcon icon={faNodeJs} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
-            <div><h1 className={styles.source_han_sans_bold}>Node.Jsの情報が少ないけど躓くエラーTips</h1>
-                    <p>2021.12.4</p>
-                    <div className={`${styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>プログラミング</a></Link>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>Node</a></Link>
-                    </div>
-                    <p>TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT</p>
-            </div></a></Link>
-            <Link href="https://google.com"><a href="https://google.com" className={Articles_styles.article}>
-            <FontAwesomeIcon icon={faReact} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
-            <div><h1 className={styles.source_han_sans_bold}>Reactの情報が少ないけど躓くエラーTips</h1>
-                    <p>2021.12.4</p>
-                    <div className={`${styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>プログラミング</a></Link>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>React</a></Link>
-                    </div>
-                    <p>TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT</p>
-            </div></a></Link>
-            <Link href="https://google.com"><a href="https://google.com" className={Articles_styles.article}>
-            <FontAwesomeIcon icon={faAws} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
-            <div><h1 className={styles.source_han_sans_bold}>AWSでのよく初心者が躓きがちなことTips</h1>
-                    <p>2021.12.4</p>
-                    <div className={`${styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>プログラミング</a></Link>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>AWS</a></Link>
-                    </div>
-                    <p>TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT</p>
-            </div></a></Link>
-            <Link href="https://google.com"><a href="https://google.com" className={Articles_styles.article}>
-            <FontAwesomeIcon icon={faImage} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
-            <div><h1 className={styles.source_han_sans_bold}>写真の見栄えてコントラストと</h1>
-                    <p>2021.12.4</p>
-                    <div className={`${styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>デザイン</a></Link>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>写真</a></Link>
-                    </div>
-                    <p>今回は写真を加工する際のコントラスト加工などのコツを伝授します。また、このブログではプログラミングから編集ソフトなどにとらわれないデザインテクニックを解説していきます。</p>
-            </div></a></Link>
-            <Link href="https://google.com"><a href="https://google.com" className={Articles_styles.article}>
-            <FontAwesomeIcon icon={faVideo} size="1x" color="#3a3a3a" className={`${Articles_styles.article_icon}`} />
-            <div><h1 className={styles.source_han_sans_bold}>手を抜きつつ動画をおしゃれに見せる方法</h1>
-                    <p>2021.12.4</p>
-                    <div className={`${styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>デザイン</a></Link>
-                        <Link href="https://google.com"><a href="https://microsoft.com" className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>動画</a></Link>
-                    </div>
-                    <p>TEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXTTEXT</p>
-            </div></a></Link>
-        </div>
-            <div className={`${Pages_styles.pagelink_div} ${styles.source_han_sans_regular}`}>
-              <Link href="https://google.com"><a className={`${Pages_styles.pagelink}`}>←</a></Link>
-              <Link href="https://google.com"><a className={`${Pages_styles.pagelink}`}>1</a></Link>
-              <Link href="https://google.com"><a className={`${Pages_styles.pagelink}`}>→</a></Link>
-            </div>
-        </>
-    );
-}
-
-
 {/* Others系 */}
 
 
@@ -258,34 +180,26 @@ export function Article_List() {
 export function Others_list() {
     return(
         <div className={Articles_styles.article_list}>
-            <h1>All</h1>
-            <Link href="https://google.com"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
+            <h2 className={Articles_styles.home_h2}>All</h2>
+            <Link href="/programming"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
                 <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faCode} size="8x" color="#3a3a3a" />
                 <p>Programing</p>
             </a></Link>
-            <Link href="https://google.com"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
+            <Link href="/design"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
                 <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faPaintBrush} size="8x" color="#3a3a3a" />
                 <p>Design</p>
             </a></Link>
-            <Link href="https://google.com"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
+            <Link href="/seo"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
                 <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faSearch} size="8x" color="#3a3a3a" />
                 <p>SEO</p>
-            </a></Link>
-            <Link href="https://google.com"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
-                <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faKeyboard} size="8x" color="#3a3a3a" />
-                <p>Gadget</p>
             </a></Link>
             <Link href="https://google.com"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
                 <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faYoutube} size="8x" color="#3a3a3a" />
                 <p>Youtube</p>
             </a></Link>
-            <Link href="https://twitter.com/cupmen4800"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
+            <Link href="https://twitter.com/"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
                 <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faTwitter} size="8x" color="#3a3a3a" />
                 <p>Twitter</p>
-            </a></Link>
-            <Link href="https://google.com"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
-                <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faInstagram} size="8x" color="#3a3a3a" />
-                <p>Instagram</p>
             </a></Link>
             <Link href="https://github.com/cupmen4800"><a className={`${Articles_styles.others_card} ${Articles_styles.article}`}>
                 <FontAwesomeIcon className={`${Articles_styles.others_icon}`} icon={faGithub} size="8x" color="#3a3a3a" />

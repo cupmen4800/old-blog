@@ -179,6 +179,7 @@
     overflow: hidden;
     transition: all 0.3s ease 0s;
     color: #000;
+    font-size: 1.1vw;
     &:hover {
       transform: scale(1.0075, 1.0075);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -243,6 +244,9 @@
 @media (max-width: 500px) {
   .main {
     grid-template-rows: 15vw auto auto;
+  }
+  .main_panel {
+    padding: 5vw 7vw;
   }
 
   .side_panel {
