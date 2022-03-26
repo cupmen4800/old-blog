@@ -84,14 +84,16 @@ export function Header() {
             <div className={`${header_styles.drawer_close_button_div}`}>
             </div>
             <nav>
-            <a style={{width: "100%"}} href="/search">
-              <div className={`${styles.search_container} ${header_styles.sp_view_search_container}`}>
-                <div className={`${styles.search_bar} ${header_styles.sp_search_bar}`}/>
-                <div className={`${styles.search_button} ${header_styles.sp_search_button}`}>
-                  <FontAwesomeIcon icon={faSearch} size="1x" color="#FFF"/>
+            <Link href="/search">
+              <a style={{width: "100%"}}>
+                <div className={`${styles.search_container} ${header_styles.sp_view_search_container}`}>
+                  <div className={`${styles.search_bar} ${header_styles.sp_search_bar}`}/>
+                  <div className={`${styles.search_button} ${header_styles.sp_search_button}`}>
+                    <FontAwesomeIcon icon={faSearch} size="1x" color="#FFF"/>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </Link>
             <Link href="/"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>Home</a></Link>
             <Link href="/programming"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>Programming</a></Link>
             <Link href="/design"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>Design</a></Link>
@@ -395,9 +397,9 @@ const SearchModal = (props: SearchProps) => {
             <InstantSearch indexName={searchIndex} searchClient={searchClient}>
               <div className={`${header_styles.X}`}>
                 <SearchBox />
-                <a onClick={closeModal}>
+                <button onClick={closeModal}>
                   <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><g id="b"><g id="c"><rect width="48" height="48" style={{fill:"none"}}/></g><g id="d"><line x1="12.13" y1="12.63" x2="36.13" y2="36.13" style={{fill:"none", stroke:"#3a3a3a"}}/><line x1="12.38" y1="36.38" x2="35.88" y2="12.38" style={{fill:"none", stroke:"#3a3a3a"}}/></g></g></svg>
-                </a>
+                </button>
               </div>
               <div className={`${header_styles.search_list}`}>
                 <Configure hitsPerPage={4} />
