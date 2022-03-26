@@ -44,31 +44,38 @@
     margin: 0 0 2vw 0;
   }
   .footer_logo{
-    font-size: 2.3vw;
+    font-size: 2.25vw;
     color: #FFF;
     margin: 0;
     padding: 0;
+    img {
+      width: 18vw;
+    }
     &:visited {
       color: #FFF;
       text-decoration: none;
     }
-    h1 {
+    span {
       margin: 0;
       padding: 0;
+      font-size: 2em;
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 650px) {
     .footer_logo_div {
       margin: 0 0 1vw 0;
     }
 
     .footer_logo{
       font-size: 7vw;
+      img {
+        width: 50vw;
+      }
     }
 
     .footer{
-      padding: 0.7vw 0.5vw 7vw 0.7vw;
+      padding: 2vw 2vw 7vw 2vw;
       nav {
         li {
           margin: 1vw 0vw;

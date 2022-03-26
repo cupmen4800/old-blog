@@ -6,6 +6,7 @@ import html from 'remark-html'
 import {fileNameId, postData, postDataResult} from 'interfaces'
 const postsDirectory= path.join(process.cwd(), '/posts')
 
+//SSGのところで出てくるやつ
 export const getSortedPostsData = ():postDataResult => {
     const fileNames =  fs.readdirSync(postsDirectory)
     const allPostsData = fileNames.map(fileName => {
@@ -27,7 +28,7 @@ export const getSortedPostsData = ():postDataResult => {
             return -1
         }
     })))
-} 
+}
 
 export const getAllPostIds = (): Array<fileNameId> => {
     const fileNames = fs.readdirSync(postsDirectory)
@@ -41,27 +42,25 @@ export const getAllPostIds = (): Array<fileNameId> => {
     })
 }
 
+// Array Make
 export const getPostData = async (id:string):Promise<postData> => {
-
+    const Terms = fs.readFileSync(process.cwd() + `/posts/${id}.md`, 'utf8')
     const fullPath = path.join(postsDirectory, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-    const matterResult = matter(fileContents)
-    const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
-    const contentHtml = processedContent.toString()
+    const matterResult = matter(Terms)
+    const Content = matterResult.content
     const title = matterResult.data.title
     const date = matterResult.data.date
     const janle = matterResult.data.janle
-    const view_janle = matterResult.data.janle
+    const view_janle = matterResult.data.view_janle
     const category = matterResult.data.category
-    const view_category = matterResult.data.category
+    const view_category = matterResult.data.view_category
     const detail = matterResult.data.detail
     const sns_detail = matterResult.data.sns_detail
     return {
         id,
-        contentHtml,
+        Content,
         title,
         date,
         janle,

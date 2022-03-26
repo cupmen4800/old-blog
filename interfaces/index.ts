@@ -1,8 +1,9 @@
 import { AppProps } from "next/app"
 export type postDataResult = {
+  objectID: string;
   id:string
   content: string
-  data: {title:string,date:string, janle:string, view_janle:string, category:string, view_category:string, detail:string, sns_detail: string,}
+  data: {title:string, date:string, janle:string, view_janle:string, category:string, view_category:string, detail:string, sns_detail: string}
   isEmpty: boolean
   excerpt: string
   orig: string
@@ -14,9 +15,10 @@ export type fileNameId = {
   }
 }
 
+//ここからID抽出できそう
 export type postData = {
   id:string
-  contentHtml:string
+  Content: string
   title:string
   date:string
   janle:string

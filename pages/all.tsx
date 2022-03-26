@@ -1,24 +1,26 @@
 import Head from 'next/head';
 import React from "react";
-import { GetStaticProps } from 'next'
+import { NextPage } from 'next'
 import { Others_list } from 'components/Layout_parts';
 import Layout from 'components/Layout';
 import styles from 'styles/Home.module.scss';
 import Articles_styles from '/styles/ArticleList.module.scss';
 
-export default function All() {
+const All = () => {
   return(
     <>
       <Head>
-        <title>SAMPLE</title>
+        <title>{process.env.NEXT_PUBLIC_SITETITLE} - All</title>
       </Head>
-        <Others_list/>
+      <Others_list/>
     </>
   )
 }
 
-export const getStaticProps:GetStaticProps = async() => {
+export const getStaticProps = () => {
   return {
     props: {}
   }
 }
+
+export default All;

@@ -1,16 +1,25 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import {getAllPostIds, getPostData} from 'lib/posts'
 import { postData,staticPaths, staticProps } from 'interfaces'
 import { NextPage } from 'next'
-import Date from 'components/Date'
+import styles from 'styles/Home.module.scss';
 import Article_styles from 'styles/Article.module.scss';
+import Articles_styles from 'styles/ArticleList.module.scss';
+import ReactMarkdown from 'react-markdown'
+import Skeleton from "react-loading-skeleton";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+const LayoutParts = require("/components/Layout_parts")
+
 import {
     FacebookShareButton,
     FacebookIcon,
     TwitterShareButton,
     TwitterIcon,
     HatenaShareButton,
-    HatenaIcon
+    HatenaIcon,
+    LineShareButton,
+    LineIcon
 } from 'react-share';
 
 export const getStaticPaths = async ():Promise<staticPaths> => {
@@ -21,38 +30,64 @@ export const getStaticPaths = async ():Promise<staticPaths> => {
     }
 }
 
-export const getStaticProps = async ({params}:{params:{id:string}}):Promise<staticProps>=>{
+export const getStaticProps = async ({params}:{params:{id:string}}):Promise <staticProps>=>{
     const postData = await getPostData(params.id)
     return {
         props: {
-            postData
+          postData
         }
     }
 }
 
+// HTML...
 const Post:NextPage<{postData:postData}> = ({postData}:{postData:postData}) => {
-    return (
+  return (
     <>
-        <Head>
-          <title>{postData.title} - LOGO</title>
-        </Head>
-        <article className={`${Article_styles.article}`}>
-          <h1 >{postData.title}</h1>
-          <p className={`${Article_styles.time}`}>投稿日: <Date dateString={postData.date} /></p>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-          <div className={`${Article_styles.sns_share_div}`}>
-            <TwitterShareButton url={`https://localhost/article/${postData.id}`} title={postData.sns_detail}>
-              <TwitterIcon size={32} round />
-            </TwitterShareButton>
-            <FacebookShareButton url={`https://localhost/article/${postData.id}`} title={postData.sns_detail}>
-              <FacebookIcon size={32} round />
-            </FacebookShareButton>
-            <HatenaShareButton url={`https://localhost/article/${postData.id}`} title={postData.sns_detail}>
-              <HatenaIcon size={32} round />
-            </HatenaShareButton>
+      <Head>
+        <title>{postData.title} - {process.env.NEXT_PUBLIC_SITETITLE}</title>
+        <meta name="keywords" content={`LEEKS.com ${postData.janle},${postData.category},${postData.view_janle},${postData.view_category}`}/>
+        <meta name="description" content={`${postData.detail}`}/>
+        <meta property="og:url" content={`leekscom.com/article/${postData.id}`} />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content={`${postData.title} - LEEKS.com`}/>
+        <meta property="og:description" content={`${postData.detail}`}/>
+        <meta property="og:site_name" content="LEEKS.com" />
+        <meta property="og:image" content=" サムネイル画像の URL" />
+      </Head>
+      <article className={`${Article_styles.article}`}>
+        <h1>{postData.title || <Skeleton />}</h1>
+          <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
+            <Link href={`/${postData.janle}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ postData.view_janle }</a></Link>
+            <Link href={`/${postData.janle}/${postData.category}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ postData.view_category }</a></Link>
           </div>
-        </article>
+        <time dateTime={postData.date} className={`${Article_styles.time}`}>投稿日: {postData.date}</time>
+        <div className={`${Article_styles.TableOFContents}`}>
+          <p className={`${Article_styles.AnkerTitle}`}>目次</p>
+          <ul>
+            <ReactMarkdown components={{h2: LayoutParts.ankerLink}} allowedElements={["h2"]}>{postData.Content}</ReactMarkdown>
+          </ul>
+        </div>
+        <div id={`${Article_styles.ArticleContent}`}>
+          <ReactMarkdown components={{code: LayoutParts.CodeBlock, h2: LayoutParts.H2}}>
+            {postData.Content}
+          </ReactMarkdown>
+        </div>
+        <div className={`${Article_styles.sns_share_div}`}>
+          <TwitterShareButton url={`https://leekscom.com/article/${postData.id}`} title={postData.sns_detail}>
+            <TwitterIcon size={32} round />
+          </TwitterShareButton>
+          <FacebookShareButton url={`https://leekscom.com/article/${postData.id}`} title={postData.sns_detail}>
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>
+          <HatenaShareButton url={`https://leekscon.com/article/${postData.id}`} title={postData.sns_detail}>
+            <HatenaIcon size={32} round />
+          </HatenaShareButton>
+          <LineShareButton url={`https://leekscon.com/article/${postData.id}`} title={postData.sns_detail}>
+            <LineIcon size={32} round/>
+          </LineShareButton>
+        </div>
+      </article>
     </>
-    )
+  )
 }
 export default Post

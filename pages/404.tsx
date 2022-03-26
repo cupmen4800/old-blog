@@ -1,22 +1,19 @@
 import Head from 'next/head';
-import { GetStaticProps } from 'next'
 import React from "react";
-import { NotFoundContainer } from '../components/Layout_parts';
-import styles from '/styles/Home.module.scss';
-import Articles_styles from '/styles/ArticleList.module.scss';
+import { NotFoundContainer } from '/components/Layout_parts';
 
 export default function NotFound() {
   return(
     <>
       <Head>
-        <title>SAMPLE</title>
+        <title>{process.env.NEXT_PUBLIC_SITETITLE} - 404</title>
       </Head>
-        <NotFoundContainer/>
+      <NotFoundContainer/>
     </>
   )
 }
 
-export const getStaticProps:GetStaticProps = async() => {
+export const getStaticProps = () => {
   return {
     props: {}
   }

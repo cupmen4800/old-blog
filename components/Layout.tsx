@@ -13,19 +13,16 @@ interface Props{
 
 function Layout(props: Props) {
     return (
-        <div className={styles.container}>
-          <main className={styles.main}>
-            <Header/>
-            <div className={styles.contents}>
-              <Side></Side>
-              <div className={styles.main_panel}>
-                {props.children}
-                <div className={`${styles.ad_image}`}><h1>広告</h1></div>
-              </div>
-            </div>
-            <Footer></Footer>
-          </main>
-        </div>
+      <div className={styles.main}>
+        <Header/>
+          <div className={styles.contents}>
+            <Side></Side>
+            <main className={styles.main_panel}>
+              {props.children}
+            </main>
+          </div>
+        <Footer></Footer>
+      </div>
     )
 }
 

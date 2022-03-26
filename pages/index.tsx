@@ -1,53 +1,92 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
 import { getSortedPostsData } from 'lib/posts'
-import {postDataResult, PropsAllPostsData} from 'interfaces'
+import {postDataResult, PropsAllPostsData, postData, fileNameId } from 'interfaces'
 import {NextPage} from 'next'
 import Articles_styles from 'styles/ArticleList.module.scss';
-import Pages_styles from 'styles/Page_Link.module.scss';
-import styles from 'styles/Home.module.scss';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode, faPaintBrush, faSearch, faKeyboard, faQuestion, faUser, faImage, faVideo } from '@fortawesome/free-solid-svg-icons'
-import { faYoutube, faTwitter, faInstagram, faPython, faNodeJs, faReact, faAws, faGithub } from '@fortawesome/free-brands-svg-icons'
+import ReactPaginate from 'react-paginate';
+import React, { useState } from 'react';
+import { Article } from 'components/Layout_parts'
+import algoliasearch from 'algoliasearch';
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+const postsDirectory= path.join(process.cwd(), '/posts')
 
 
 const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {allPostsData: Array<postDataResult>}) => {
+  const [ offset, setOffset ] = useState(0); // Number Item View
+  const perPage: number = 10; // 1Page Items
+  // Click function
+  const handlePageChange = (data: any) => {
+      let page_number = data['selected']; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
+      setOffset(page_number*perPage); // offsetを変更し、表示開始するアイテムの番号を変更
+  }
   return (
     <>
     <Head>
-      <title>LOGO</title>
+      <title>{process.env.NEXT_PUBLIC_SITETITLE}</title>
     </Head>
     <div className={`${Articles_styles.article_list}`}>
       <h2 className={Articles_styles.home_h2}>Home</h2>
-    {allPostsData.map(({ id, data }) => (
-    <>
-      <Link href={`/article/${id}`}><a className={Articles_styles.article} key={data.date}>
-        <object type="image/svg+xml" data={`/storage/img/janle-icon/${data.category}.svg`} className={`${Articles_styles.article_icon}`}/>
-        <div><h1 className={styles.source_han_sans_bold}>{ data.title }</h1>
-          <p className={styles.source_han_sans_light}>投稿日： {data.date}</p>
-          <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-            <Link href={`/${data.janle}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ data.view_janle }</a></Link>
-            <Link href={`/${data.janle}/${data.category}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ data.view_category }</a></Link>
-          </div>
-          <p className={styles.source_han_sans_light}>{ data.detail }</p>
-        </div>
-      </a></Link>
-    </>
-    ))}
+      {allPostsData.slice(offset, offset + perPage).map(({ id, data }) => (
+        <a href={`/article/${id}`} className={Articles_styles.article} key={data.date}>
+        <Article
+          title={data.title}
+          janle={data.janle}
+          category={data.category}
+          view_janle={data.view_janle}
+          view_category={data.view_category}
+          date={data.date}
+          detail={data.detail}
+        />
+        </a>
+      ))}
     </div>
+    <ReactPaginate
+      previousLabel={'<'}
+      nextLabel={'>'}
+      breakLabel={'...'}
+      pageCount={Math.ceil(allPostsData.length/perPage)} // 全部のページ数。端数の場合も考えて切り上げに。
+      marginPagesDisplayed={2} // 一番最初と最後を基準にして、そこからいくつページ数を表示するか
+      pageRangeDisplayed={5} // アクティブなページを基準にして、そこからいくつページ数を表示するか
+      onPageChange={handlePageChange} // function
+      containerClassName={`${Articles_styles.pagelink_div}`} // ul
+      pageLinkClassName={`${Articles_styles.pagelink}`} // Default li a
+      activeLinkClassName={`${Articles_styles.active_pagelink}`} // Active li
+      previousLinkClassName={`${Articles_styles.pagelink}`} // [<] li
+      nextLinkClassName={`${Articles_styles.pagelink}`} // [>] li
+      disabledLinkClassName={`${Articles_styles.notfound_pagelink}`} // notfound [<,>] li
+    />
     </>
   )
 }
 
-export const getStaticProps = ():PropsAllPostsData => {
+export const getStaticProps = async () => {
+  const fileNames = fs.readdirSync(postsDirectory)
+  const PostsData = fileNames.map(fileName => {
+      const id = fileName.replace(/\.md$/, '')
+      const objectID = id;
+
+      const fullPath = path.join(postsDirectory, fileName)
+      const fileContents = fs.readFileSync(fullPath, 'utf8')
+
+      const matterResult = matter(fileContents)
+      return {
+          id,
+          objectID,
+          ...matterResult
+      }
+  })
   const allPostsData = getSortedPostsData()
+  const searchClient = algoliasearch('AG783LQQY3', '73d4d320e08b008e617f4e1ef1734ae5');
+  const searchIndex = searchClient.initIndex('blogs');
+  searchIndex.saveObjects(PostsData, { autoGenerateObjectIDIfNotExist: false });
+  // SSG
   return {
     props: {
       allPostsData
     }
   }
-}
+};
 
 export default Home

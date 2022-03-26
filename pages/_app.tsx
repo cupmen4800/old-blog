@@ -3,6 +3,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import 'styles/global.scss';
 import Layout from 'components/Layout';
+import Skeleton from "react-loading-skeleton";
 
 const App = (props: AppProps) => {
   const { Component, pageProps } = props;

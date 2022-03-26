@@ -5,7 +5,7 @@ update_date: "2022-01-16"
 janle: "design"
 view_janle: "デザイン"
 category: "movie"
-view_category: "動画"
+view_category: "Movie"
 detail: "今回はYoutube APIを使ってYoutubeから競合の情報などを調べるプログラムを作っていきたいと思います。"
 sns_detail: "テスト"
 ---

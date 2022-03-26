@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next -p 80",
-    "build": "next build",
+    "build": "next build && next-sitemap --config sitemap.config.js",
     "start": "next start -p 80",
     "lint": "next lint"
   },
@@ -22,16 +22,23 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@types/node": "^17.0.8",
     "@types/react": "^17.0.38",
+    "algoliasearch": "^4.12.1",
     "date-fns": "^2.28.0",
     "eslint": "^8.6.0",
     "fs": "^0.0.1-security",
+    "instantsearch.css": "^7.4.5",
     "next": "^12.0.7",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-instantsearch-dom": "^6.22.0",
+    "react-loading-skeleton": "^3.0.3",
+    "react-markdown": "^8.0.1",
     "react-modern-drawer": "^1.0.1",
+    "react-paginate": "^8.1.0",
     "react-share": "^4.4.0",
-    "react-twitter-widgets": "^1.10.0",
+    "react-twitter-embed": "^4.0.4",
+    "react-youtube": "^7.14.0",
     "remark": "^14.0.2",
     "remark-breaks": "^3.0.2",
     "remark-code-titles": "^0.1.2",
@@ -46,7 +53,12 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
+    "@algolia/client-search": "^4.13.0",
+    "@types/algoliasearch": "^4.0.0",
+    "@types/react-instantsearch-dom": "^6.12.2",
     "eslint-config-next": "12.0.8",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "next-sitemap": "^2.5.13",
+    "remove-markdown": "^0.3.0"
   }
 }

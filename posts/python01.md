@@ -1,5 +1,5 @@
 ---
-title: 'Chromeの新しいタブ作った!!'
+title: '全体発表に応募したら失敗した話'
 date: '2022-01-15'
 update_date: "2022-01-15"
 janle: "programming"
@@ -10,22 +10,29 @@ detail: "今回はYoutube APIを使ってYoutubeから競合の情報などを�
 sns_detail: "テスト"
 ---
 
-## 概要
+## はじめに
 
-![新しいタブの画像](/README_Image.png)
+今回全体発表に応募して失敗したんですよね
 
-適当に作ったchrome用の新しいタブです。
+## テスト
 
-火狐などへの移植は自由です。
+[aaa](/)
 
-あと、機能も乏しいので拡張頼む🙏
+- テスト
+  - テスト
+  - テスト
 
-あと、SSHと+もダミーです
+## テストコード
 
-## ライセンスについて
+```twitter
+1506967890141986817
+```
 
-尚、本リポジトリはGNU GPL3.0ライセンスとなっております。
+```youtube
+k-kqyUOriqs
+```
 
-GPL3.0の利用規約はこちらをご覧ください
-
-[GNU GPLの利用規約](https://licenses.opensource.jp/GPL-2.0/gpl/gpl.ja.html)
+```python
+print("HelloWorld!!")
+print("HelloWorld2!!")
+```
