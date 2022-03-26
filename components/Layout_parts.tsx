@@ -380,7 +380,7 @@ export const hitComponent = ({ hit }: HitcomProps): JSX.Element => (
 );
 
 interface SearchProps {
-  showFlag: any,
+  showFlag: object,
   setShowModal: any
 }
 
@@ -484,13 +484,13 @@ export const CodeBlock = ({ className, children, ...props }: CodeProps) => {
     </code>
   </div>);
 };
-export const H2 = ({ node, children}: {node: any, children: any}) => {
+export const H2 = ({ node, children}: {node: any, children: ReactNode}) => {
   return (
     <h2 id={node.position?.start.line.toString()}>{children}</h2>
   );
 }
 
-export const ankerLink = ({ node, children }: {node:any, children: any}) => {
+export const ankerLink = ({ node, children }: {node:any, children: ReactNode}) => {
   return (
     <li>
       <a href={"#"+node.position?.start.line.toString()} className={`${Article_styles.tocLink}`}>{children}</a>
@@ -498,7 +498,7 @@ export const ankerLink = ({ node, children }: {node:any, children: any}) => {
   );
 }
 
-export const CardLink = ({ node, children }: {node:any, children: any}) => {
+export const CardLink = ({ node, children }: {node:any, children: ReactNode}) => {
   return (
     <li>
       <a href={"#"+node.position?.start.line.toString()} className={`${Article_styles.tocLink}`}>{children}</a>
