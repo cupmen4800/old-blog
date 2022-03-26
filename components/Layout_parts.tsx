@@ -291,7 +291,7 @@ export function Others_list() {
     );
 }
 
-export function NotFoundContainer() {
+export const NotFoundContainer = () => {
     return(
         <div className={Articles_styles.article_list}>
             <Image src="/storage/img/error/404.svg" alt="404 NotFound" className={`${Articles_styles.error_img}`} width={1000} height={600} />

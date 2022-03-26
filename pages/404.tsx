@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from "react";
-import { NotFoundContainer } from '/components/Layout_parts';
+import { NotFoundContainer } from 'components/Layout_parts';
 
 export default function NotFound() {
   return(

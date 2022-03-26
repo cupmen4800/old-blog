@@ -8,8 +8,7 @@ import Article_styles from 'styles/Article.module.scss';
 import Articles_styles from 'styles/ArticleList.module.scss';
 import ReactMarkdown from 'react-markdown'
 import Skeleton from "react-loading-skeleton";
-import { TwitterTweetEmbed } from "react-twitter-embed";
-const LayoutParts = require("/components/Layout_parts")
+import { CodeBlock, ankerLink, H2 } from 'components/Layout_parts'
 
 import {
     FacebookShareButton,
@@ -64,11 +63,11 @@ const Post:NextPage<{postData:postData}> = ({postData}:{postData:postData}) => {
         <div className={`${Article_styles.TableOFContents}`}>
           <p className={`${Article_styles.AnkerTitle}`}>目次</p>
           <ul>
-            <ReactMarkdown components={{h2: LayoutParts.ankerLink}} allowedElements={["h2"]}>{postData.Content}</ReactMarkdown>
+            <ReactMarkdown components={{h2: ankerLink}} allowedElements={["h2"]}>{postData.Content}</ReactMarkdown>
           </ul>
         </div>
         <div id={`${Article_styles.ArticleContent}`}>
-          <ReactMarkdown components={{code: LayoutParts.CodeBlock, h2: LayoutParts.H2}}>
+          <ReactMarkdown components={{code: CodeBlock, h2: H2}}>
             {postData.Content}
           </ReactMarkdown>
         </div>
