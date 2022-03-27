@@ -20,6 +20,9 @@ class MyDocument extends Document {
                     <link rel="apple-touch-icon" href="/logo.svg" />
                     <meta property="og:image" content="storage/LEEKSdevOGP.png" />
                     <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITETITLE} />
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:site" content="@cupmen4800" />
+                    <meta name="twitter:player" content="@cupmen4800" />
                 </Head>
                 <body className="antialiased">
                     <Main />
