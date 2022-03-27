@@ -40,7 +40,13 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
   return (
     <>
     <Head>
-      <title>{process.env.NEXT_PUBLIC_SITETITLE} - Node.js</title>
+      <title>{process.env.NEXT_PUBLIC_SITETITLE} - Node.JS</title>
+      <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
+      <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/node.js`} />
+      <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
+      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - Node.JS`}/>
+      <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
     </Head>
     <div className={`${Articles_styles.article_list}`}>
       <h2 className={Articles_styles.home_h2}>Node.JS</h2>

@@ -12,7 +12,6 @@ import path from 'path'
 import matter from 'gray-matter'
 const postsDirectory= path.join(process.cwd(), '/posts')
 
-
 const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {allPostsData: Array<postDataResult>}) => {
   const [ offset, setOffset ] = useState(0); // Number Item View
   const perPage: number = 10; // 1Page Items
@@ -25,6 +24,12 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
     <>
     <Head>
       <title>{process.env.NEXT_PUBLIC_SITETITLE}</title>
+      <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
+      <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}`} />
+      <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
+      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE}`}/>
+      <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
     </Head>
     <div className={`${Articles_styles.article_list}`}>
       <h2 className={Articles_styles.home_h2}>Home</h2>

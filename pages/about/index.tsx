@@ -3,22 +3,18 @@ import Articles_styles from 'styles/ArticleList.module.scss';
 import styles from 'styles/Home.module.scss';
 import React, { useState } from 'react';
 import Article_styles from "styles/Article.module.scss"
-import {
-    FacebookShareButton,
-    FacebookIcon,
-    TwitterShareButton,
-    TwitterIcon,
-    HatenaShareButton,
-    HatenaIcon,
-    LineShareButton,
-    LineIcon
-} from 'react-share';
 
 const About = () => {
   return (
     <>
     <Head>
       <title>{process.env.NEXT_PUBLIC_SITETITLE} - About</title>
+      <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
+      <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/about`} />
+      <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
+      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - About`}/>
+      <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
     </Head>
     <div className={`${Article_styles.article}`}>
       <h1>本サイトについて</h1>

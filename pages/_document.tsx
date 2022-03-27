@@ -18,6 +18,8 @@ class MyDocument extends Document {
                     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap" rel="stylesheet"></link>
                     <link rel="icon" href="/storage/img/favicon/favicon.svg" />
                     <link rel="apple-touch-icon" href="/logo.svg" />
+                    <meta property="og:image" content="storage/LEEKSdevOGP.png" />
+                    <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITETITLE} />
                 </Head>
                 <body className="antialiased">
                     <Main />

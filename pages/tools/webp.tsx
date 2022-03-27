@@ -16,7 +16,13 @@ const About = () => {
   return (
     <>
     <Head>
-      <title>{process.env.NEXT_PUBLIC_SITETITLE} - About</title>
+      <title>{process.env.NEXT_PUBLIC_SITETITLE} - WebP変換(作成中)</title>
+      <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
+      <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/tools/webp`} />
+      <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
+      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - WebP変換(作成中)`}/>
+      <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
     </Head>
     <div className={`${Articles_styles.article_list}`}>
       <input className={Articles_styles.category_tag} type="file" name="file" />

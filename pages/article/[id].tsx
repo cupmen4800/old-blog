@@ -44,14 +44,12 @@ const Post:NextPage<{postData:postData}> = ({postData}:{postData:postData}) => {
     <>
       <Head>
         <title>{postData.title} - {process.env.NEXT_PUBLIC_SITETITLE}</title>
-        <meta name="keywords" content={`LEEKS.com ${postData.janle},${postData.category},${postData.view_janle},${postData.view_category}`}/>
+        <meta name="keywords" content={`${process.env.NEXT_PUBLIC_SITETITLE} ${postData.janle},${postData.category},${postData.view_janle},${postData.view_category}`}/>
         <meta name="description" content={`${postData.detail}`}/>
-        <meta property="og:url" content={`leekscom.com/article/${postData.id}`} />
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/article/${postData.id}`} />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content={`${postData.title} - LEEKS.com`}/>
+        <meta property="og:title" content={`${postData.title} - ${process.env.NEXT_PUBLIC_SITETITLE}`}/>
         <meta property="og:description" content={`${postData.detail}`}/>
-        <meta property="og:site_name" content="LEEKS.com" />
-        <meta property="og:image" content=" サムネイル画像の URL" />
       </Head>
       <article className={`${Article_styles.article}`}>
         <h1>{postData.title || <Skeleton />}</h1>
