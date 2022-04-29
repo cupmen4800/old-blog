@@ -23,7 +23,7 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
         let page_number = data['selected']; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
         setOffset(page_number*perPage); // offsetを変更し、表示開始するアイテムの番号を変更
     }
-  const filter = allPostsData.filter(janle => janle.data.janle ==="design").filter(x => x.data.category === "photo")
+  const filter = allPostsData.filter(janle => janle.data.janle ==="programming").filter(x => x.data.category === "gas")
   const filter_Article = filter.slice(offset, offset + perPage).map(({ id, data }) => (
     <a href={`/article/${id}`} className={Articles_styles.article} key={data.date}>
       <Article
@@ -40,16 +40,16 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
   return (
     <>
     <Head>
-      <title>{process.env.NEXT_PUBLIC_SITETITLE} - Photo</title>
+      <title>{process.env.NEXT_PUBLIC_SITETITLE} - GAS</title>
       <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
       <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
-      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/design/photo`} />
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/programming/gas`} />
       <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
-      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - Photo`}/>
+      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - GAS`}/>
       <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
     </Head>
     <div className={`${Articles_styles.article_list}`}>
-      <h2 className={Articles_styles.home_h2}>Photo</h2>
+      <h2 className={Articles_styles.home_h2}>GAS</h2>
       {filter_Article}
     </div>
     <ReactPaginate

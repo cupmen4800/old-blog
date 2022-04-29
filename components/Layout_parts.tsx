@@ -66,7 +66,7 @@ export function Header() {
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/"><a className={`${styles.ubuntu_light}`}>Youtube</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/all"><a className={`${styles.ubuntu_light}`}>All</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/about"><a className={`${styles.ubuntu_light}`}>About</a></Link></li>
-            <a onClick={toggleDisplay} className={`${styles.search_container} ${header_styles.pc_view_search_container}`}>
+            <a onClick={toggleDisplay} className={`${styles.search_container} ${header_styles.pc_view_search_container}`} id={`${header_styles.pc_view_search_container}`}>
                 <div className={styles.search_bar} placeholder="Search" />
                 <div className={`${styles.search_button} ${header_styles.search_button}`}>
                     <FontAwesomeIcon icon={faSearch} size="1x" color="#FFF" />
@@ -493,7 +493,7 @@ export const H2 = ({ node, children}: {node: any, children: ReactNode}) => {
 export const ankerLink = ({ node, children }: {node:any, children: ReactNode}) => {
   return (
     <li>
-      <a href={"#"+node.position?.start.line.toString()} className={`${Article_styles.tocLink}`}>{children}</a>
+      <Link href={"#"+node.position?.start.line.toString()}><a className={`${Article_styles.tocLink}`}>{children}</a></Link>
     </li>
   );
 }
@@ -505,3 +505,36 @@ export const CardLink = ({ node, children }: {node:any, children: ReactNode}) =>
     </li>
   );
 }
+
+export const MDLink = ({ href, children }: {href:any, children: any}) => {
+  return (
+    <Link href={`${href}`}>
+      <a>{children}</a>
+    </Link>
+  );
+}
+
+export const Button = ({ href, children }: {href:string, children: ReactNode}) => {
+  return (
+    <li>
+      <a href={href} className={`${Article_styles.tocLink}`}>{children}</a>
+    </li>
+  );
+}
+
+export const MDImg = ({ href, children }: {href:string, children: string}) => {
+  return (
+    <Image src={href} alt={children} objectFit="contain"/>
+  );
+}
+
+export const CustomLink = (props: any): JSX.Element => 
+  props.href.startsWith('/') || props.href === '' ? (
+    <Link href={props.href}>
+      <a>{props.children}</a>
+    </Link>
+  ) : (
+    <a href={props.href} target="_blank" rel="noopener noreferrer">
+      {props.children}
+    </a>
+);

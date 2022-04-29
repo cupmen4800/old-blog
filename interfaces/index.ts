@@ -3,7 +3,7 @@ export type postDataResult = {
   objectID: string;
   id:string
   content: string
-  data: {title:string, date:string, janle:string, view_janle:string, category:string, view_category:string, detail:string, sns_detail: string}
+  data: {title:string, date:string, janle:string, view_janle:string, category:string, view_category:string, detail:string}
   isEmpty: boolean
   excerpt: string
   orig: string
@@ -26,7 +26,6 @@ export type postData = {
   category:string
   view_category:string
   detail:string
-  sns_detail: string
 }
 
 export type Props = {

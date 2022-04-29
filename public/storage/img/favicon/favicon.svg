@@ -1,9 +1,10 @@
 <svg id="レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 191.5 116.15"><defs>
-<style>.cls-1{fill:#000;}
+<style>
+  @media (prefers-color-scheme: light) {
+    .cls-1{fill:#000;}
+  }
   @media (prefers-color-scheme: dark) {
-    .cls-1 {
-      fill: #FFF; <!-- ダークモード時のカラー -->
-    }
+    .cls-1{fill:#FFF;}
   }
 .cls-2{fill:url(#名称未設定グラデーション_32);}</style>
 <linearGradient id="名称未設定グラデーション_32" y1="108.15" x2="191.5" y2="108.15" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#167df2"/><stop offset="1" stop-color="#00aafa"/></linearGradient></defs><path class="cls-1" d="M84.08,81.08v19.43H16.92V0H39.55V81.08Z"/><path class="cls-1" d="M157.83,100.51q-3.06-4.91-7.2-10.6t-8.94-11.49q-4.78-5.79-10-11.1a106.57,106.57,0,0,0-10.47-9.38v42.57H98.58V0H121.2V37.78q8.73-9.16,17.73-19.18T155.56,0h26.85q-10.26,12.23-20.64,23.5T139.91,46.19a172.25,172.25,0,0,1,23.27,23.87,299.13,299.13,0,0,1,21.55,30.45Z"/><rect class="cls-2" y="100.15" width="191.5" height="16"/></svg>

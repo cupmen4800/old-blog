@@ -10,6 +10,9 @@
 }
 
 #ArticleContent {
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+  border-bottom: 2px solid #efefef;
 h2 {
     font-family: 'Noto Sans JP', sans-serif;
     font-weight: 700;
@@ -51,7 +54,7 @@ p {
 iframe {
     border: none;
 }
-ul {
+ul, ol {
   border: solid 2px #efefef;
   background: #fcfcfc;
   font-size: 1.2vw;
@@ -60,10 +63,18 @@ ul {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
   letter-spacing: 0.07vw;
+  a {
+    margin: 0;
+    text-decoration: none;
+    color: #0070f3;
+    &:hover {
+    text-decoration: underline;
+    }
+  }
   li {
     margin: 0;
     padding: 0;
-    ul {
+    ul, ol {
       border: none;
       background: none;
       margin: 0.25vw 1vw;
@@ -72,12 +83,13 @@ ul {
   }
 }
 img {
-  width: 75%;
+  width: 100%;
   padding: 0.5vw 0;
+  border: none;
 }
 pre {
   margin: 1vw 0 1vw 0;
-  padding: 0.75vw;
+  padding: 0.75vw 0;
 }
 .codeblock {
   font-family: 'Noto Sans JP', sans-serif;
@@ -87,6 +99,10 @@ pre {
   color: #FFF;
   background: #2f2d50;
   padding: 0.5vw 0.5vw;
+  overflow-x: auto;
+  code {
+    word-break: break-all;
+  }
 }
 table {
   margin: 0.5vw;
@@ -159,7 +175,7 @@ table {
   flex-wrap: wrap;
   padding: 0;
   margin: auto;
-  ul {
+  ul, ol {
     padding: 0.25vw 1vw;
     list-style: none;
     border: none;
@@ -268,7 +284,7 @@ table {
   iframe {
       border: none;
   }
-  ul {
+  ul, ol {
     border: solid 2px #efefef;
     margin: 1vw 5vw;
     margin: 0;
@@ -276,7 +292,7 @@ table {
     li {
       margin: 0;
       padding: 0;
-      ul {
+      ul, ol {
         margin: 1vw 5vw;
       }
     }
@@ -341,7 +357,7 @@ table {
     flex-wrap: wrap;
     padding: 0;
     margin: auto;
-    ul {
+    ul, ol {
       padding: 0.25vw 1vw;
       list-style: none;
       border: none;

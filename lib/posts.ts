@@ -57,7 +57,6 @@ export const getPostData = async (id:string):Promise<postData> => {
     const category = matterResult.data.category
     const view_category = matterResult.data.view_category
     const detail = matterResult.data.detail
-    const sns_detail = matterResult.data.sns_detail
     return {
         id,
         Content,
@@ -68,6 +67,5 @@ export const getPostData = async (id:string):Promise<postData> => {
         category,
         view_category,
         detail,
-        sns_detail
     }
 }

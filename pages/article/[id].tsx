@@ -8,7 +8,8 @@ import Article_styles from 'styles/Article.module.scss';
 import Articles_styles from 'styles/ArticleList.module.scss';
 import ReactMarkdown from 'react-markdown'
 import Skeleton from "react-loading-skeleton";
-import { CodeBlock, ankerLink, H2 } from 'components/Layout_parts'
+import { CodeBlock, ankerLink, H2, CustomLink } from 'components/Layout_parts'
+import remarkGfm from "remark-gfm"
 
 import {
     FacebookShareButton,
@@ -65,21 +66,21 @@ const Post:NextPage<{postData:postData}> = ({postData}:{postData:postData}) => {
           </ul>
         </div>
         <div id={`${Article_styles.ArticleContent}`}>
-          <ReactMarkdown components={{code: CodeBlock, h2: H2}}>
+          <ReactMarkdown components={{code: CodeBlock, h2: H2, a: CustomLink}}>
             {postData.Content}
           </ReactMarkdown>
         </div>
         <div className={`${Article_styles.sns_share_div}`}>
-          <TwitterShareButton url={`https://leekscom.com/article/${postData.id}`} title={postData.sns_detail}>
+          <TwitterShareButton url={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/article/${postData.id}`} title={postData.title}>
             <TwitterIcon size={32} round />
           </TwitterShareButton>
-          <FacebookShareButton url={`https://leekscom.com/article/${postData.id}`} title={postData.sns_detail}>
+          <FacebookShareButton url={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/article/${postData.id}`} title={postData.title}>
             <FacebookIcon size={32} round />
           </FacebookShareButton>
-          <HatenaShareButton url={`https://leekscon.com/article/${postData.id}`} title={postData.sns_detail}>
+          <HatenaShareButton url={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/article/${postData.id}`} title={postData.title}>
             <HatenaIcon size={32} round />
           </HatenaShareButton>
-          <LineShareButton url={`https://leekscon.com/article/${postData.id}`} title={postData.sns_detail}>
+          <LineShareButton url={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/article/${postData.id}`} title={postData.title}>
             <LineIcon size={32} round/>
           </LineShareButton>
         </div>

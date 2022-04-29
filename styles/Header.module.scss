@@ -335,6 +335,9 @@
     padding: 1.5vw 2vw 1.5vw 2vw;
     width: 100%;
   }
+  #pc_view_search_container {
+    display: none;
+  }
 }
 @media (max-width: 1155px) {
   .nav_link {

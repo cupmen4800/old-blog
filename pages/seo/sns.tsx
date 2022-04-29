@@ -43,7 +43,7 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
       <title>{process.env.NEXT_PUBLIC_SITETITLE} - SNS SEO</title>
       <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
       <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
-      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/sns`} />
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/seo/sns`} />
       <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
       <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - SNS SEO`}/>
       <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
