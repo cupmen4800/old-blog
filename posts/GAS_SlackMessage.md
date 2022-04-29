@@ -6,7 +6,7 @@ janle: "programming"
 view_janle: "プログラミング"
 category: "gas"
 view_category: "GAS"
-detail: ""
+detail: "今回はGAS(Google Apps Script)を使ってSlackで予定をお知らせするボットを作っていきます。"
 
 ---
 
