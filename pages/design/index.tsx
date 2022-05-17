@@ -9,11 +9,8 @@ import Pages_styles from 'styles/Page_Link.module.scss';
 import styles from 'styles/Home.module.scss';
 import ReactPaginate from 'react-paginate';
 import React, { useState } from 'react';
-import { Article } from 'components/Layout_parts'
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode, faPaintBrush, faSearch, faKeyboard, faQuestion, faUser, faImage, faVideo } from '@fortawesome/free-solid-svg-icons'
-import { faYoutube, faTwitter, faInstagram, faPython, faNodeJs, faReact, faAws, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { Article, FilList } from 'components/Layout_parts'
+import Layout from 'components/Layout';
 
 const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {allPostsData: Array<postDataResult>}) => {
   const [ offset, setOffset ] = useState(0); // 何番目のアイテムから表示するか
@@ -25,49 +22,31 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
     }
   const filter = allPostsData.filter(x => x.data.janle === "design")
   const filter_Article = filter.slice(offset, offset + perPage).map(({ id, data }) => (
-    <a href={`/article/${id}`} className={Articles_styles.article} key={data.date}>
-      <Article
-        title={data.title}
-        janle={data.janle}
-        category={data.category}
-        view_janle={data.view_janle}
-        view_category={data.view_category}
-        date={data.date}
-        detail={data.detail}
-      />
-    </a>
+    <Link href={`/article/${id}`} key={data.date}>
+      <a className={Articles_styles.article}>
+        <Article
+          title={data.title}
+          janle={data.janle}
+          category={data.category}
+          view_janle={data.view_janle}
+          view_category={data.view_category}
+          date={data.date}
+          detail={data.detail}
+        />
+      </a>
+    </Link>
   ))
   return (
-    <>
-    <Head>
-      <title>{process.env.NEXT_PUBLIC_SITETITLE} - デザイン</title>
-      <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
-      <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
-      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/design`} />
-      <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
-      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - デザイン`}/>
-      <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
-    </Head>
-    <div className={`${Articles_styles.article_list}`}>
-      <h2 className={Articles_styles.home_h2}>デザイン</h2>
-      {filter_Article}
-    </div>
-    <ReactPaginate
-            previousLabel={'<'}
-            nextLabel={'>'}
-            breakLabel={'...'}
-            pageCount={Math.ceil(filter.length/perPage)} // 全部のページ数。端数の場合も考えて切り上げに。
-            marginPagesDisplayed={2} // 一番最初と最後を基準にして、そこからいくつページ数を表示するか
-            pageRangeDisplayed={5} // アクティブなページを基準にして、そこからいくつページ数を表示するか
-            onPageChange={handlePageChange} // function
-            containerClassName={`${Articles_styles.pagelink_div}`} // ul
-            pageLinkClassName={`${Articles_styles.pagelink}`} // Default li a
-            activeLinkClassName={`${Articles_styles.active_pagelink}`} // Active li
-            previousLinkClassName={`${Articles_styles.pagelink}`} // [<] li
-            nextLinkClassName={`${Articles_styles.pagelink}`} // [>] li
-            disabledLinkClassName={`${Articles_styles.notfound_pagelink}`} // notfound [<,>] li
-        />
-    </>
+    <Layout>
+      <FilList 
+        janle="Design"
+        url="design"
+        filter_Article={filter_Article}
+        filter_length={filter.length}
+        perPage={perPage}
+        handlePageChange={handlePageChange}
+      />
+    </Layout>
   )
 }
 

@@ -2,7 +2,6 @@ import React from "react"
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import 'styles/global.scss';
-import Layout from 'components/Layout';
 import Skeleton from "react-loading-skeleton";
 
 const App = (props: AppProps) => {
@@ -18,9 +17,7 @@ const App = (props: AppProps) => {
         {/* <link rel="shortcut icon" href="/favicon.png" key="shortcutIcon" /> */}
         {/* <link rel="manifest" href="/manifest.json" /> */}
       </Head>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+      <Component {...pageProps} />
     </>);
 };
 

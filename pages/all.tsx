@@ -2,9 +2,9 @@ import Head from 'next/head';
 import React from "react";
 import { NextPage } from 'next'
 import { Others_list } from 'components/Layout_parts';
-import Layout from 'components/Layout';
 import styles from 'styles/Home.module.scss';
 import Articles_styles from '/styles/ArticleList.module.scss';
+import Layout from 'components/Layout';
 
 const All = () => {
   return(
@@ -18,7 +18,9 @@ const All = () => {
       <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - All`}/>
       <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
       </Head>
-      <Others_list/>
+      <Layout>
+        <Others_list/>
+      </Layout>
     </>
   )
 }

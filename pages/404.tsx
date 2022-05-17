@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from "react";
 import { NotFoundContainer } from 'components/Layout_parts';
+import Layout from 'components/Layout';
 
 export default function NotFound() {
   return(
@@ -8,7 +9,9 @@ export default function NotFound() {
       <Head>
         <title>{process.env.NEXT_PUBLIC_SITETITLE} - 404</title>
       </Head>
-      <NotFoundContainer/>
+      <Layout>
+        <NotFoundContainer/>
+      </Layout>
     </>
   )
 }

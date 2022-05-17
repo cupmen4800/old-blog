@@ -10,6 +10,7 @@ import { InstantSearch, SearchBox, Hits, Configure, Pagination, PoweredBy } from
 import { Hit } from 'react-instantsearch-core';
 import { SearchhitComponent } from "components/Layout_parts";
 import header_styles from 'styles/Header.module.scss';
+import Layout from 'components/Layout';
 
 const searchClient = algoliasearch('AG783LQQY3', '73d4d320e08b008e617f4e1ef1734ae5');
 const searchIndex = "blogs";
@@ -17,22 +18,24 @@ const searchIndex = "blogs";
 const SearchHome = () => {
   return (
     <>
-    <Head>
-      <title>{process.env.NEXT_PUBLIC_SITETITLE} - Search</title>
-    </Head>
-    <div className={`${Articles_styles.article_list}`}>
-      <h2 className={Articles_styles.home_h2}>Search</h2>
-      {/* ここに色々書く */}
-      <InstantSearch indexName={searchIndex} searchClient={searchClient}>
-        <SearchBox/>
-        <div className={`${header_styles.search_list}`}>
-          <Configure hitsPerPage={5} />
-          <Hits hitComponent={SearchhitComponent} />
-          <Pagination />
-          <PoweredBy />
+      <Head>
+        <title>{process.env.NEXT_PUBLIC_SITETITLE} - Search</title>
+      </Head>
+      <Layout>
+        <div className={`${Articles_styles.article_list}`}>
+          <h2 className={Articles_styles.home_h2}>Search</h2>
+          {/* ここに色々書く */}
+          <InstantSearch indexName={searchIndex} searchClient={searchClient}>
+            <SearchBox/>
+            <div className={`${header_styles.search_list}`}>
+              <Configure hitsPerPage={5} />
+              <Hits hitComponent={SearchhitComponent} />
+              <Pagination />
+              <PoweredBy />
+            </div>
+          </InstantSearch>
         </div>
-      </InstantSearch>
-    </div>
+      </Layout>
     </>
   )
 }

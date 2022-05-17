@@ -10,7 +10,7 @@ class MyDocument extends Document {
             <Html lang="ja" dir="ltr">
                 <Head>
                     <meta charSet="utf-8" />
-                    <meta name="keywords" content="プログラミング,デザイン,web,ウェブ,ウェブデザイン,React,Next.js,SEO,Youtube,Linux,Docker,javascript,js,typescript,ts"/>
+                    <meta name="keywords" content={`${process.env.NEXT_PUBLIC_SITETITLE},プログラミング,デザイン,web,ウェブ,ウェブデザイン,SEO,Youtube`}/>
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
                     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet" />

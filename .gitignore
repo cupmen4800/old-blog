@@ -39,3 +39,6 @@ yarn-error.log*
 # SiteMap
 /public/robots.txt
 /public/sitemap*.xml
+
+# Editor
+/pages/blog-editor/*

@@ -20,6 +20,9 @@ import { CodeProps } from "react-markdown/lib/ast-to-react";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import YouTubeEmbed from "react-youtube";
 import Skeleton from "react-loading-skeleton";
+import Head from 'next/head'
+import ReactPaginate from 'react-paginate';
+import fs from "fs"
 
 interface ArticleProps {
     title: string;
@@ -63,7 +66,7 @@ export function Header() {
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/programming"><a className={`${styles.ubuntu_light}`}>Programming</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/design"><a className={`${styles.ubuntu_light}`}>Design</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/seo"><a className={`${styles.ubuntu_light}`}>SEO</a></Link></li>
-            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/"><a className={`${styles.ubuntu_light}`}>Youtube</a></Link></li>
+            <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="https://www.youtube.com/channel/UCZX3bYOf9QoMix48D5bZYWQ"><a className={`${styles.ubuntu_light}`}>Youtube</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/all"><a className={`${styles.ubuntu_light}`}>All</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/about"><a className={`${styles.ubuntu_light}`}>About</a></Link></li>
             <a onClick={toggleDisplay} className={`${styles.search_container} ${header_styles.pc_view_search_container}`} id={`${header_styles.pc_view_search_container}`}>
@@ -181,7 +184,10 @@ export const Side = () => {
               cupmen
             </h2>
             <p className={styles.source_han_sans_light}>
-              お金ちょーだい
+              趣味プロの一般人
+            </p>
+            <p className={styles.source_han_sans_light}>
+              主にReactとPythonをやっています。
             </p>
           </a>
         </Link>
@@ -312,9 +318,22 @@ export const NotFoundContainer = () => {
     )
 }
 
+const ArticleImg = (category: string, janle: string) => {
+  const filename =fs.readdir('./', (e, result) =>  (e)  ? console.error(e): console.log(result));;
+  console.log(filename)
+  if(category == "js") {
+    return filename
+  }
+  else {
+    return filename
+  }
+}
+
 export const Article = (props: ArticleProps) => {
     return(
-        <><object type="image/svg+xml" data={`/storage/img/janle-icon/${props.category}.svg`} className={`${Articles_styles.article_icon}`}/>
+        <><object type="image/svg+xml" data={`/storage/img/janle-icon/${
+          ArticleImg(props.category, props.janle)
+          }.svg`} className={`${Articles_styles.article_icon}`}/>
         <div><h2 className={`${styles.source_han_sans_bold} ${Articles_styles.Articleh2}`}>{ props.title }</h2>
           <p className={`${Articles_styles.timeDetail} ${styles.source_han_sans_light}`}><time dateTime={props.date}>投稿日： {props.date}</time></p>
           <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
@@ -341,6 +360,50 @@ export const SearchArticle = (props: searchArticleProps) => {
     )
 }
 
+type FilListProps = {
+  janle: string,
+  url: string,
+  filter_Article: ReactNode,
+  filter_length: any,
+  perPage: number,
+  handlePageChange: any,
+}
+
+export const FilList = (props: FilListProps) => {
+  
+  return (
+  <>
+    <Head>
+      <title>{process.env.NEXT_PUBLIC_SITETITLE} - {props.janle}</title>
+      <meta name="keywords" content={process.env.NEXT_PUBLIC_INDEXKEYWORD}/>
+      <meta name="description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
+      <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITEDOMAIN}/${props.url}`} />
+      <meta property="og:type" content={process.env.NEXT_PUBLIC_INDEXTYPE}/>
+      <meta property="og:title" content={`${process.env.NEXT_PUBLIC_SITETITLE} - ${props.janle}`}/>
+      <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
+    </Head>
+    <div className={`${Articles_styles.article_list}`}>
+      <h2 className={Articles_styles.home_h2}>{props.janle}</h2>
+      {props.filter_Article}
+    </div>
+    <ReactPaginate
+      previousLabel={'<'}
+      nextLabel={'>'}
+      breakLabel={'...'}
+      pageCount={Math.ceil(props.filter_length/props.perPage)} // 全部のページ数。端数の場合も考えて切り上げに。
+      marginPagesDisplayed={2} // 一番最初と最後を基準にして、そこからいくつページ数を表示するか
+      pageRangeDisplayed={5} // アクティブなページを基準にして、そこからいくつページ数を表示するか
+      onPageChange={props.handlePageChange} // function
+      containerClassName={`${Articles_styles.pagelink_div}`} // ul
+      pageLinkClassName={`${Articles_styles.pagelink}`} // Default li a
+      activeLinkClassName={`${Articles_styles.active_pagelink}`} // Active li
+      previousLinkClassName={`${Articles_styles.pagelink}`} // [<] li
+      nextLinkClassName={`${Articles_styles.pagelink}`} // [>] li
+      disabledLinkClassName={`${Articles_styles.notfound_pagelink}`} // notfound [<,>] li
+    />
+  </>
+  )
+}
 
 interface HitDoc {
   objectID: string;
@@ -437,7 +500,8 @@ interface SearchHitComponentProps extends SearchHitcomProps {
 
 function SearchHitComponent({ hit }: SearchHitComponentProps): JSX.Element {
   return (
-      <a href={`/article/${hit.id}`} className={Articles_styles.article} key={hit.data.date}>
+    <Link href={`/article/${hit.id}`}>
+      <a className={Articles_styles.article} key={hit.data.date}>
         <Article
         title={hit.data.title}
         janle={hit.data.janle}
@@ -448,6 +512,7 @@ function SearchHitComponent({ hit }: SearchHitComponentProps): JSX.Element {
         date={hit.data.date}
         />
     </a>
+  </Link>
   );
 }
 
