@@ -22,7 +22,6 @@ import YouTubeEmbed from "react-youtube";
 import Skeleton from "react-loading-skeleton";
 import Head from 'next/head'
 import ReactPaginate from 'react-paginate';
-import fs from "fs"
 
 interface ArticleProps {
     title: string;
@@ -318,22 +317,9 @@ export const NotFoundContainer = () => {
     )
 }
 
-const ArticleImg = (category: string, janle: string) => {
-  const filename =fs.readdir('./', (e, result) =>  (e)  ? console.error(e): console.log(result));;
-  console.log(filename)
-  if(category == "js") {
-    return filename
-  }
-  else {
-    return filename
-  }
-}
-
 export const Article = (props: ArticleProps) => {
     return(
-        <><object type="image/svg+xml" data={`/storage/img/janle-icon/${
-          ArticleImg(props.category, props.janle)
-          }.svg`} className={`${Articles_styles.article_icon}`}/>
+        <><object type="image/svg+xml" data={`/storage/img/janle-icon/${props.category}.svg`} className={`${Articles_styles.article_icon}`}/>
         <div><h2 className={`${styles.source_han_sans_bold} ${Articles_styles.Articleh2}`}>{ props.title }</h2>
           <p className={`${Articles_styles.timeDetail} ${styles.source_han_sans_light}`}><time dateTime={props.date}>投稿日： {props.date}</time></p>
           <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
