@@ -1,3 +1,2 @@
 /.env.local merge=ours
 /node_modules merge=ours
-/.next merge=ours
