@@ -110,7 +110,115 @@ detail: "TEST"
 まずは、テキストエディタで『manifest.json』という名前で保存して
 以下のように入力
 
-```js
+```json
+// この『//』はいらないはいらない
+{
+  "name": "名前", // 名前
+  "version": "1.0.0", // 拡張機能のバージョン
+  "manifest_version": 3, // 設定ファイルバージョン
+  "description": "説明です。", // 説明
+  "permissions" : [ // アクセス権限とか
+    "activeTab",
+	"contextMenus",
+    "storage",
+    "clipboardRead"
+	],
+  "action": {
+    "default_popup": "popup.html" // アイコンクリックしたときのHTML
+  },
+  "background": {
+    "service_worker": "background.js" // 裏で動くJSファイル
+  },
+  "icons": {
+    "48": "アイコン.png" // アイコン
+  }
+}
 ```
 
-これが基本的な形になります。
+これが今回使う設定になります。
+
+ここからJSファイルを書いておきます。
+
+同じディレクトリ内に『background.js』を作成
+
+この中にメニューの表示などの操作を記述していきます。
+
+まずはメニューからこのように入力
+
+```js
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.contextMenus.create({
+    type: "normal",
+    id: "parent",
+    title: "コピー+",
+    contexts: ["editable","selection"]
+  });
+
+  chrome.contextMenus.create({
+    type: "normal",
+    id: "c1",
+    parentId: "parent",
+    title: "ペースト",
+    contexts: ["editable"]
+  });
+
+  chrome.contextMenus.create({
+    type: "normal",
+    id: "gc1",
+    parentId: "c1",
+    title: "1",
+    contexts: ["all"]
+  });
+
+  chrome.contextMenus.create({
+    type: "normal",
+    id: "gc2",
+    parentId: "c1",
+    title: "2",
+    contexts: ["all"]
+  });
+
+  chrome.contextMenus.create({
+    type: "normal",
+    id: "gc3",
+    parentId: "c1",
+    title: "3",
+    contexts: ["all"]
+  });
+
+  chrome.contextMenus.create({
+    type: "normal",
+    id: "gc4",
+    parentId: "c1",
+    title: "4",
+    contexts: ["all"]
+  });
+
+  chrome.contextMenus.create({
+    type: "normal",
+    id: "gc5",
+    parentId: "c1",
+    title: "5",
+    contexts: ["all"]
+  });
+})
+
+chrome.contextMenus.onClicked.addListener((info,tab,item) => {
+  const selectedMenu = info.menuItemId;
+  const targetName = info.stext;
+
+  switch (selectedMenu) {
+    case "c":
+      chrome.storage.local.set({text: targetName}, (val) => {});
+      console.log("AAA");
+      saveToClipboard(targetName);
+      break;
+    
+    case "gc1":
+      chrome.storage.local.get("text", (valtext) => {
+        console.log(valtext);
+      });
+      break;
+  }
+});
+```
