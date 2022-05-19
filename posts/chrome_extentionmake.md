@@ -119,10 +119,10 @@ detail: "TEST"
   "description": "説明です。", // 説明
   "permissions" : [ // アクセス権限とか
     "activeTab",
-	"contextMenus",
+    "contextMenus",
     "storage",
     "clipboardRead"
-	],
+    ],
   "action": {
     "default_popup": "popup.html" // アイコンクリックしたときのHTML
   },
@@ -208,12 +208,12 @@ chrome.contextMenus.onClicked.addListener((info,tab,item) => {
   const targetName = info.stext;
 
   switch (selectedMenu) {
-    case "c":
+    case "c1":
       chrome.storage.local.set({text: targetName}, (val) => {});
       console.log("AAA");
       saveToClipboard(targetName);
       break;
-    
+
     case "gc1":
       chrome.storage.local.get("text", (valtext) => {
         console.log(valtext);
