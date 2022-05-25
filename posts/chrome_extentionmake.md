@@ -9,23 +9,29 @@ view_category: "JS"
 detail: "TEST"
 ---
 
-## 今回やること
+## 今回使う技術や言語
 
 今回はGoogle Chromeの拡張機能を作っていきます。
 
 まあ、作れるの?という感じの人もいると思いますが、
 
-- JavaScript(できた方が楽だけどできなくてもおｋ)
+- JavaScript(できた方が楽だけどできなくても解説するからおｋ)
   
   - ウェブとかの記述をするプログラミング言語
+  - サーバー関連とかもできる
+  - インストール不要
 
 - 設定用のJSONファイル
-
-- HTML(メニューとかを表示したい場合)
   
-  - ウェブサイトとかの土台
+  - 使うファイルやアイコン、権限などを設定する
+
+- HTML(アイコンクリックしたときのやつとかを表示したい場合に必要)
+  
+  - ウェブサイトとかの土台になる言語
 
 - テキストエディタ(メモ帳でも可能)
+  
+  - VSCode推奨
 
 の4点があればとりあえず作れます。
 
@@ -69,7 +75,9 @@ detail: "TEST"
 
 ### 今回作る拡張機能
 
-今回はコピークリップボードを拡張する拡張機能の『コピー+』を作っていきます。(クソダサネーミング)
+今回はアクセスしているサイトのリンクやタイトル瞬時にコピーする拡張機能の
+
+『コピーLink』を作っていきます。(クソダサネーミング)
 
 画像はこんな感じです。
 
@@ -79,17 +87,9 @@ detail: "TEST"
 
 仕組みはこの様になっています。
 
-1. 普通のコピーをそのままコピーできます。
+1. メニューをクリック or ショートカットを入力
 
-2. コピーしたものを0.5秒刻みで取得
-   
-   - コピー履歴をJSから取得するのは無理みたい
-   
-   - そもそもできたとしてもOSごとに取得方法が異なる
-
-3. 結果が変わった場合のみリストに書き込む
-   
-   - 時刻を取得して古いものから順に消す
+2. その瞬間アクセスしているサイトのURLをコピー
 
 それと、メニューからコピーした文字を確認できます。
 
@@ -111,26 +111,32 @@ detail: "TEST"
 以下のように入力
 
 ```json
-// この『//』はいらないはいらない
 {
-  "name": "名前", // 名前
+  "name": "コピーLink", // 名前
   "version": "1.0.0", // 拡張機能のバージョン
-  "manifest_version": 3, // 設定ファイルバージョン
-  "description": "説明です。", // 説明
-  "permissions" : [ // アクセス権限とか
+  "manifest_version": 3, // 設定ファイルのバージョン　※ググると
+  "description": "コピーの拡張", // 説明
+  "permissions" : [
     "activeTab",
-    "contextMenus",
-    "storage",
-    "clipboardRead"
-    ],
+	"contextMenus",
+    "clipboardRead",
+    "clipboardWrite",
+    "tabs"
+	],
   "action": {
-    "default_popup": "popup.html" // アイコンクリックしたときのHTML
+    "default_popup": "index.html"
   },
   "background": {
-    "service_worker": "background.js" // 裏で動くJSファイル
+    "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["smith.js"]
+    }
+  ],
   "icons": {
-    "48": "アイコン.png" // アイコン
+    "48": "LEEKS.devTeropIcon.png"
   }
 }
 ```
@@ -150,75 +156,21 @@ chrome.runtime.onInstalled.addListener(function () {
   chrome.contextMenus.create({
     type: "normal",
     id: "parent",
-    title: "コピー+",
-    contexts: ["editable","selection"]
-  });
-
-  chrome.contextMenus.create({
-    type: "normal",
-    id: "c1",
-    parentId: "parent",
-    title: "ペースト",
-    contexts: ["editable"]
-  });
-
-  chrome.contextMenus.create({
-    type: "normal",
-    id: "gc1",
-    parentId: "c1",
-    title: "1",
-    contexts: ["all"]
-  });
-
-  chrome.contextMenus.create({
-    type: "normal",
-    id: "gc2",
-    parentId: "c1",
-    title: "2",
-    contexts: ["all"]
-  });
-
-  chrome.contextMenus.create({
-    type: "normal",
-    id: "gc3",
-    parentId: "c1",
-    title: "3",
-    contexts: ["all"]
-  });
-
-  chrome.contextMenus.create({
-    type: "normal",
-    id: "gc4",
-    parentId: "c1",
-    title: "4",
-    contexts: ["all"]
-  });
-
-  chrome.contextMenus.create({
-    type: "normal",
-    id: "gc5",
-    parentId: "c1",
-    title: "5",
+    title: "URLをコピー",
     contexts: ["all"]
   });
 })
 
 chrome.contextMenus.onClicked.addListener((info,tab,item) => {
-  const selectedMenu = info.menuItemId;
-  const targetName = info.stext;
-
-  switch (selectedMenu) {
-    case "c1":
-      chrome.storage.local.set({text: targetName}, (val) => {});
-      console.log("AAA");
-      saveToClipboard(targetName);
-      break;
-
-    case "gc1":
-      chrome.storage.local.get("text", (valtext) => {
-        console.log(valtext);
-      });
-      break;
-  }
+  chrome.tabs.query({ currentWindow: true, active: true }, (tab) => {
+    let clipText  = ``
+    switch (info.menuItemId) {
+      case "parent":
+        clipText = `${tab.url}`
+        console.log(tab.url)
+        chrome.tabs.sendMessage(tab.id, {"clipTxt": "ABC"})
+        break;
+    }
+  })
 });
 ```
