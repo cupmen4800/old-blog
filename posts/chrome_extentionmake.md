@@ -1,5 +1,5 @@
 ---
-title: "Chrome拡張機能を作ろう!"
+title: "【簡単】Chrome拡張機能を作ろう!"
 date: "2022-05-15"
 update_data: "2022-05-15"
 janle: "programming"
@@ -9,35 +9,35 @@ view_category: "JS"
 detail: "TEST"
 ---
 
-## 今回使う技術や言語
+## 前提として必要な技術
 
-今回はGoogle Chromeの拡張機能を作っていきます。
+『JavaScript』のみです。
 
-まあ、作れるの?という感じの人もいると思いますが、
+これ以外には
 
-- JavaScript(できた方が楽だけどできなくても解説するからおｋ)
+- HTML
   
-  - ウェブとかの記述をするプログラミング言語
-  - サーバー関連とかもできる
-  - インストール不要
-
-- 設定用のJSONファイル
+  - アイコンをクリックした際のポップアップ
   
-  - 使うファイルやアイコン、権限などを設定する
+  - 新しいタブとかを作りたい場合
 
-- HTML(アイコンクリックしたときのやつとかを表示したい場合に必要)
+- CSS
   
-  - ウェブサイトとかの土台になる言語
+  - 上記のものを装飾したい場合
 
-- テキストエディタ(メモ帳でも可能)
+などに使います。
+
+- ReactやVue
   
-  - VSCode推奨
+  - 必要に応じて使うことができます。
 
-の4点があればとりあえず作れます。
+他にも、ReactやVueといった技術を使うことができます。
 
-他にもメニューなどの見た目を変えたい場合はCSSもできたほうが良いです。
+今回は上記のReactやVueは使いません。
 
 これで技術についての説明は終わったので拡張機能の種類についての説明に移ります
+
+## 拡張機能の種類
 
 拡張機能の種類は主にこの3つです。
 
@@ -75,21 +75,15 @@ detail: "TEST"
 
 ### 今回作る拡張機能
 
-今回はアクセスしているサイトのリンクやタイトル瞬時にコピーする拡張機能の
+今回作るのはAmazonの検索などで新しいタブを開かなくなる拡張機能
 
-『コピーLink』を作っていきます。(クソダサネーミング)
-
-画像はこんな感じです。
-
-![]()
-
-まあ、とてもシンプルです。
+『名前決めてくれ』を作ります。
 
 仕組みはこの様になっています。
 
-1. メニューをクリック or ショートカットを入力
+1. JSファイルをAmazonのページで読み込む
 
-2. その瞬間アクセスしているサイトのURLをコピー
+2. その瞬間にリンクから新しいタブで開く属性を削除
 
 それと、メニューからコピーした文字を確認できます。
 
@@ -112,31 +106,18 @@ detail: "TEST"
 
 ```json
 {
-  "name": "コピーLink", // 名前
-  "version": "1.0.0", // 拡張機能のバージョン
-  "manifest_version": 3, // 設定ファイルのバージョン　※ググると
-  "description": "コピーの拡張", // 説明
-  "permissions" : [
-    "activeTab",
-	"contextMenus",
-    "clipboardRead",
-    "clipboardWrite",
-    "tabs"
-	],
-  "action": {
-    "default_popup": "index.html"
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
+  "name": "Amazon No new Tab", // 拡張機能の名前
+  "version": "0.1.0", // 拡張機能のバージョン
+  "manifest_version": 3, // 設定ファイルのバージョン (2は新規登録が停止されています。)
+  "description": "Amazonの検索などで新しいタブを開くのを防止します。", // 説明
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "js": ["smith.js"]
+      "matches": ["https://www.amazon.co.jp/*"], // JSファイルを読み込むURL (*はワイルドカードです。)
+      "js": ["content.js"] // 読み込まれるファイル
     }
   ],
   "icons": {
-    "48": "LEEKS.devTeropIcon.png"
+    "48": "LEEKS.devTeropIcon.png" // アイコン
   }
 }
 ```
@@ -145,32 +126,12 @@ detail: "TEST"
 
 ここからJSファイルを書いておきます。
 
-同じディレクトリ内に『background.js』を作成
-
-この中にメニューの表示などの操作を記述していきます。
-
-まずはメニューからこのように入力
-
 ```js
-chrome.runtime.onInstalled.addListener(function () {
-  chrome.contextMenus.create({
-    type: "normal",
-    id: "parent",
-    title: "URLをコピー",
-    contexts: ["all"]
-  });
-})
-
-chrome.contextMenus.onClicked.addListener((info,tab,item) => {
-  chrome.tabs.query({ currentWindow: true, active: true }, (tab) => {
-    let clipText  = ``
-    switch (info.menuItemId) {
-      case "parent":
-        clipText = `${tab.url}`
-        console.log(tab.url)
-        chrome.tabs.sendMessage(tab.id, {"clipTxt": "ABC"})
-        break;
-    }
-  })
-});
+const rm_Blank = () => {
+  let elements = document.getElementsByClassName("a-link-normal");
+    for(let i = 0; elements.length > i; i++){
+      elements[i].removeAttribute("target");
+    };
+}
+rm_Blank();
 ```
