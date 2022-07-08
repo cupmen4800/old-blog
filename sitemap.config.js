@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://leeksdev.vercel.app",
+  siteUrl: "https://leeks.dev",
   generateRobotsTxt: true,
 }
