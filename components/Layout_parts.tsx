@@ -81,11 +81,12 @@ export function Header() {
             </button>
         </ul>
         </nav>
-        <div>
-        <Drawer className={`${header_styles.drawer}`} open={isOpen} onClose={toggleDrawer} zIndex={10000} direction='right'>
-            <div className={`${header_styles.drawer_close_button_div}`}>
-            </div>
-            <nav>
+    </header>
+    <SearchModal showFlag={boxStyle} setShowModal={toggleDisplay}/>
+    <Drawer className={`${header_styles.drawer}`} open={isOpen} onClose={toggleDrawer} zIndex={10000} direction='right'>
+      <div className={`${header_styles.drawer_close_button_div}`}>
+        </div>
+          <nav>
             <Link href="/search">
               <a style={{width: "100%"}}>
                 <div className={`${styles.search_container} ${header_styles.sp_view_search_container}`}>
@@ -102,11 +103,8 @@ export function Header() {
             <Link href="/seo"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>SEO</a></Link>
             <Link href="/all"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>All</a></Link>
             <Link href="/about"><a className={`${header_styles.drawer_link} ${styles.ubuntu_light}`}>about</a></Link>
-            </nav>
-        </Drawer>
-        </div>
-    </header>
-    <SearchModal showFlag={boxStyle} setShowModal={toggleDisplay}/>
+      </nav>
+    </Drawer>
     </>
     );
 }
@@ -176,7 +174,7 @@ export const Side = () => {
   return(
     <aside className={styles.side_panel}>
       <div className={styles.side_profile}>
-        <h2 className={styles.source_han_sans_bold}>誰やお前?</h2>
+        <h2 className={styles.source_han_sans_bold}>Site Admin</h2>
         <Link href="/about">
           <a className={`${styles.profile_link}`}><Image src="/storage/img/icon/icon.svg" alt="profile_icon" width={125} height={125}/>
             <h2 className={styles.source_han_sans_bold}>

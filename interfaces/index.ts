@@ -1,7 +1,7 @@
 import { AppProps } from "next/app"
 export type postDataResult = {
   objectID: string;
-  id:string
+  id: string
   content: string
   data: {title:string, date:string, janle:string, view_janle:string, category:string, view_category:string, detail:string}
   isEmpty: boolean

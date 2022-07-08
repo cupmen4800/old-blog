@@ -13,11 +13,10 @@ class MyDocument extends Document {
                     <meta name="keywords" content={`${process.env.NEXT_PUBLIC_SITETITLE},プログラミング,デザイン,web,ウェブ,ウェブデザイン,SEO,Youtube`}/>
                     <link rel="preconnect" href="https://fonts.googleapis.com"/>
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
-                    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;600;700&display=swap" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap" rel="stylesheet"></link>
                     <link rel="icon" href="/storage/img/favicon/favicon.svg" />
                     <link rel="apple-touch-icon" href="/storage/img/favicon/favicon.svg" />
-                    <meta property="og:image" content="https://leeksdev.vercel.app/storage/img/LEEKSdevOGP.png" />
+                    <meta property="og:image" content="https://leeks.dev./storage/img/LEEKSdevOGP.png" />
                     <meta property="og:site_name" content={process.env.NEXT_PUBLIC_SITETITLE} />
                     <meta name="twitter:card" content="summary" />
                     <meta name="twitter:site" content="@cupmen4800" />

@@ -55,9 +55,9 @@ const ArticlePage = (postData: articleType) => {
   return(
     <article className={`${Article_styles.article}`}>
       <h1>{postData.title || <Skeleton />}</h1>
-      <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-        <Link href={`/${postData.janle}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ postData.view_janle }</a></Link>
-        <Link href={`/${postData.janle}/${postData.category}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ postData.view_category }</a></Link>
+      <div className={`${Articles_styles.category_tags}`}>
+        <Link href={`/${postData.janle}`}><a className={`${Articles_styles.category_tag}`}>{ postData.view_janle }</a></Link>
+        <Link href={`/${postData.janle}/${postData.category}`}><a className={`${Articles_styles.category_tag}`}>{ postData.view_category }</a></Link>
       </div>
       <time dateTime={postData.date} className={`${Article_styles.time}`}>投稿日: {postData.date}</time>
       <div id={`${Article_styles.TableOFContents}`}>

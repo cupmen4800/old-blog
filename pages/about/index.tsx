@@ -8,14 +8,12 @@ import Layout from 'components/Layout';
 const AboutArticle = () => {
   return(
     <>
-      <div className={`${Article_styles.article}`}>
-        <h1>本サイトについて</h1>
-      </div>
       <article className={`${Article_styles.article}`}>
+        <h1>本サイトについて</h1>
         <div id={`${Article_styles.ArticleContent}`}>
           <h2>{`${process.env.NEXT_PUBLIC_SITETITLE}`}について</h2>
           <p>
-          {`${process.env.NEXT_PUBLIC_SITETITLE}`}は中の人(cupmen)が趣味で運営してるサイトです。
+          {`${process.env.NEXT_PUBLIC_SITETITLE}`}は当サイトの管理人であるcupmenが趣味で運営してるサイトです。
           </p>
           <p>
             2022年時点では、技術関連のことをメインに普段使える作業自動化等とWEB関連のことを発信しています。
@@ -23,12 +21,11 @@ const AboutArticle = () => {
           <p>
             その他にもデザインとかSEOについても分かる範囲でやっていきます。
           </p>
-          <h2>相互リンクについて</h2>
-          <p>
-            お断りしています。
-          </p>
           <h2>連絡について</h2>
-          <p>連絡はこのメールアドレス(noodle4800@gmail.com)に連絡をください。</p>
+          <p>連絡はこちらのメールアドレスに連絡をください。</p>
+          <p>
+            <a href="noodle4800@gmail.com">noodle4800@gmail.com</a>
+          </p>
           <h2>プライバシーポリシー</h2>
           <h3>著作権と免責事項</h3>
           <ul>
@@ -37,8 +34,18 @@ const AboutArticle = () => {
             <li>転載する際には、お問合せより必ず事前にご連絡お願いします。</li>
           </ul>
           <h3>使用しているアクセス解析ツールについて</h3>
-            <p>アクセス解析ツールにつきましては現在使用しておりません。</p>
-            <p>使用する際にはプライバシーポリシーのこの項目を一部改定します。</p>
+            <p>本サイトでは、Google アナリティクスを使用しています。</p>
+            <p>Google アナリティクスではCookieを使用してトラフィックデータを集計していますが、匿名で収集されており個人を特定するものではありません。</p>
+            <p>集計を拒否したい場合はブラウザの設定でCookieを無効化することで拒否できます。</p>
+            <p>また、Google アナリティクスの規約については下記をご確認ください。</p>
+            <ul>
+              <li>
+                <a href="https://marketingplatform.google.com/about/analytics/terms/jp/">Google アナリティクス利用規約</a>
+              </li>
+              <li>
+                <a href="https://policies.google.com/technologies/partner-sites?hl=ja">Googleのサービスを使用するサイトやアプリから収集した情報のGoogleによる使用</a>
+              </li>
+            </ul>
         </div>
       </article>
     </>

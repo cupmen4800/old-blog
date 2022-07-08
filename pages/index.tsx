@@ -22,6 +22,7 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
       let page_number = data['selected']; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
       setOffset(page_number*perPage); // offsetを変更し、表示開始するアイテムの番号を変更
   }
+  console.log(allPostsData)
 
   const HTMLHead =
   <Head>
@@ -34,7 +35,7 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
     <meta property="og:description" content={process.env.NEXT_PUBLIC_INDEXDESCRIPTION}/>
   </Head>
 
-  // 記事位リスト
+  // 記事リスト
   const ArticleList = 
   <div className={`${Articles_styles.article_list}`}>
     <h2 className={Articles_styles.home_h2}>Home</h2>

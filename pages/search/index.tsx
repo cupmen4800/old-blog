@@ -27,11 +27,11 @@ const SearchHome = () => {
           {/* ここに色々書く */}
           <InstantSearch indexName={searchIndex} searchClient={searchClient}>
             <SearchBox/>
+            <PoweredBy />
             <div className={`${header_styles.search_list}`}>
               <Configure hitsPerPage={5} />
               <Hits hitComponent={SearchhitComponent} />
               <Pagination />
-              <PoweredBy />
             </div>
           </InstantSearch>
         </div>

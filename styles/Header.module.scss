@@ -2,7 +2,7 @@
   display: flex;
   width: 100vw;
   background: #fff;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   z-index: 999;
   backdrop-filter: blur(5px);
@@ -10,7 +10,8 @@
   margin: 0;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  height: 7vw;
+  height: 5vw;
+  padding: 1rem
 }
 
 .header_title {
@@ -21,7 +22,7 @@
   font-weight: 700;
   font-style: normal;
   img {
-    width: 18vw;
+    width: 15vw;
   }
   &:hover {
     color: #242424;
@@ -47,6 +48,7 @@
   display: flex;
   align-items: center;
   padding: 0;
+  gap: 25px;
 }
 
 .nav_link {
@@ -54,8 +56,7 @@
   align-items: center;
   color: #000;
   list-style: none;
-  font-size: 2.35vw;
-  margin: 0 25px 0 0;
+  font-size: 2rem;
   transition: all 0.3s ease 0s;
   a {
     width: 100%;
@@ -242,16 +243,18 @@
   z-index: 100001;
   background: #FFF;
   display: flex;
-  padding: 2vw;
+  padding: 0.6rem;
   backdrop-filter: blur(5px);
   border-bottom: 2px solid #e0e0e0;
   border-radius: 2vw 2vw 0 0;
+  display: flex;
+  align-items: center;
   * {
     z-index: 100002;
   }
   button {
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
     background: none;
     border: none;
@@ -281,7 +284,7 @@
   .nav {
     justify-content: flex-end;
     text-align: right;
-    margin: 0 5% 0 auto;
+    margin: 0;
   }
 
   .menu_trigger {
@@ -340,8 +343,34 @@
   }
 }
 @media (max-width: 1155px) {
+  .nav {
+    gap: 15px
+  }
   .nav_link {
+    font-size: 1.5rem;
     &:nth-of-type(4){
+      display: none
+    }
+  }
+}
+@media (max-width: 1260px) {
+  .nav {
+    gap: 20px
+  }
+  .nav_link {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 900px) {
+  .nav {
+    gap: 20px
+  }
+  .nav_link {
+    font-size: 1.5rem;
+    &:nth-of-type(4){
+      display: none
+    }
+    &:nth-of-type(3){
       display: none
     }
   }
