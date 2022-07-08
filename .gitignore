@@ -40,3 +40,5 @@ yarn-error.log*
 
 # Editor
 /pages/blog-editor/*
+
+/node_modules
