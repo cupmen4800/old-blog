@@ -1,0 +1,69 @@
+{
+    "title": "Responsive Loader options",
+    "type": "object",
+    "properties": {
+        "size": {
+            "anyOf": [{ "type": "string" }, { "type": "number" }]
+        },
+        "sizes": {
+            "type": "array",
+            "items": {
+                "description": "Array of strings or numbers",
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "number"
+                    }
+                ]
+            }
+        },
+        "min": {
+            "anyOf": [{ "type": "string" }, { "type": "number" }]
+        },
+        "max": {
+            "anyOf": [{ "type": "string" }, { "type": "number" }]
+        },
+        "steps": {
+            "anyOf": [{ "type": "string" }, { "type": "number" }]
+        },
+        "name": {
+            "type": "string"
+        },
+        "outputPath": {
+            "anyOf": [{ "type": "string" }, { "instanceof": "Function" }]
+        },
+        "publicPath": {
+            "anyOf": [{ "type": "string" }, { "instanceof": "Function" }]
+        },
+        "context": { "type": "string" },
+        "placeholderSize": {
+            "anyOf": [{ "type": "string" }, { "type": "number" }]
+        },
+        "quality": { "anyOf": [{ "type": "string" }, { "type": "number" }] },
+        "background": { "anyOf": [{ "type": "string" }, { "type": "number" }] },
+        "rotate": {
+            "anyOf": [{ "type": "string" }, { "type": "number" }]
+        },
+        "progressive": { "type": "boolean" },
+        "placeholder": { "type": ["string", "boolean"] },
+        "adapter": {
+            "instanceof": "Function"
+        },
+        "format": { "type": "string", "enum": ["png", "jpg", "jpeg", "webp", "avif"] },
+        "disable": { "type": "boolean" },
+        "esModule": {
+            "description": "By default, responsive-loader generates JS modules that don't use the ES modules syntax.",
+            "type": "boolean"
+        },
+        "emitFile": {
+            "description": "Enables/Disables emit files.",
+            "type": "boolean"
+        },
+        "cacheDirectory": { "anyOf": [{ "type": "string" }, { "type": "boolean" }] },
+        "cacheIdentifier": { "type": "string" },
+        "cacheCompression": { "type": "boolean" }
+    },
+    "additionalProperties": true
+}

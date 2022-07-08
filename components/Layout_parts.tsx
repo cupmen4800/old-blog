@@ -176,7 +176,7 @@ export const Side = () => {
       <div className={styles.side_profile}>
         <h2 className={styles.source_han_sans_bold}>Site Admin</h2>
         <Link href="/about">
-          <a className={`${styles.profile_link}`}><Image src="/storage/img/icon/icon.svg" alt="profile_icon" width={125} height={125}/>
+          <a className={`${styles.profile_link}`}><img src="/storage/img/icon/icon.svg" alt="profile_icon" width={"125px"} height={"125px"}/>
             <h2 className={styles.source_han_sans_bold}>
               cupmen
             </h2>
@@ -299,7 +299,7 @@ export function Others_list() {
 export const NotFoundContainer = () => {
     return(
         <div className={Articles_styles.article_list}>
-            <Image src="/storage/img/error/404.svg" alt="404 NotFound" className={`${Articles_styles.error_img}`} width={1000} height={600} />
+            <img src="/storage/img/error/404.svg" alt="404 NotFound" className={`${Articles_styles.error_img}`} />
             <p className={`${Articles_styles.error_text} ${Articles_styles.source_han_sans_regular}`}>記事が削除されたかURLが変更されたため記事を表示できません。
             </p>
             <InstantSearch indexName={searchIndex} searchClient={searchClient}>
@@ -571,11 +571,11 @@ export const Button = ({ href, children }: {href:string, children: ReactNode}) =
   );
 }
 
-export const MDImg = ({ href, children }: {href:string, children: string}) => {
-  return (
-    <Image src={href} alt={children} objectFit="contain"/>
-  );
-}
+// export const MDImg = ({ href, children }: {href:string, children: string}) => {
+//  return (
+//    <img src={href} alt={children} objectFit="contain"/>
+//  );
+// }
 
 export const CustomLink = (props: any): JSX.Element => 
   props.href.startsWith('/') || props.href === '' ? (
