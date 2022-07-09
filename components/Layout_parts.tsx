@@ -74,7 +74,7 @@ export function Header() {
                     <FontAwesomeIcon icon={faSearch} size="1x" color="#FFF" />
                 </div>
             </button>
-            <button onClick={toggleDrawer} className={`${header_styles.menu_trigger}`}>
+            <button onClick={toggleDrawer} className={`${header_styles.menu_trigger}`} aria-label="burger menu btn">
                 <span></span>
                 <span></span>
                 <span></span>
