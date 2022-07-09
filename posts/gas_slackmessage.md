@@ -469,19 +469,19 @@ const SLACK_BOT_TOKEN="APIキー"
    
    - 一応ですが、この部分が『postSlackbot』になっているか確認しておきましょう。
    
-   - ![](/storage/article/GAS_SlackMessage/GAS_Home.jpg)
+   - ![postSlackbotかの確認](/storage/article/GAS_SlackMessage/GAS_Home.jpg)
 
 2. すると、『承認が必要です』と出てくるので、『権限を確認』をクリック
    
-   - ![権限認証のイメージ](/storage/article/GAS_SlackMessage/KENGENSHO.jpg)
+   - ![権限認証](/storage/article/GAS_SlackMessage/KENGENSHO.jpg)
 
 3. 自分のアカウントを選択
    
-   - ![](/storage/article/GAccountSecret.jpg)
+   - ![アカウント選択画面](/storage/article/GAS_SlackMessage/GAccountSerect.jpg)
 
 4. 『このアプリはGoogleで確認されていません』と表示されますが、『詳細を表示』をクリック
    
-   - ![](/storage/article/GAS_SlackMessage/WarnPage.jpg)
+   - ![確認されていませんという表示](/storage/article/GAS_SlackMessage/WarnPage.jpg)
    
    - この表示が出てくる理由はGoogleが未確認のコードのためちゃんと挙動を知った状態で動かしてください。という意味で表示されます。
 
@@ -511,13 +511,13 @@ const SLACK_BOT_TOKEN="APIキー"
 
  まずは、左側のメニューからトリガーをクリック
 
-![](/storage/article/GAS_SlackMessage/Trigger.jpg)
+![トリガーの場所](/storage/article/GAS_SlackMessage/Trigger.jpg)
 
 そしたら、右下の『トリガーを作成』をクリック
 
 それぞれの設定をこのようにしておいてください。
 
-![](/storage/article/GAS_SlackMessage/TimeTrigger.jpg)
+![トリガーの設定内容](/storage/article/GAS_SlackMessage/TimeTrigger.jpg)
 
 また、『時間ベースのトリガータイム』と『時間の間隔』は任意の時間にしておいてください。
 

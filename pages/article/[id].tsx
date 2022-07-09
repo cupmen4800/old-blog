@@ -3,13 +3,10 @@ import Link from 'next/link'
 import {getAllPostIds, getPostData} from 'lib/posts'
 import { postData,staticPaths, staticProps } from 'interfaces'
 import { NextPage } from 'next'
-import styles from 'styles/Home.module.scss';
 import Article_styles from 'styles/Article.module.scss';
 import Articles_styles from 'styles/ArticleList.module.scss';
 import ReactMarkdown from 'react-markdown'
-import Skeleton from "react-loading-skeleton";
 import { CodeBlock, ankerLink, H2, CustomLink } from 'components/Layout_parts'
-import remarkGfm from "remark-gfm"
 import Layout from 'components/Layout';
 
 import {
@@ -54,7 +51,7 @@ type articleType = {
 const ArticlePage = (postData: articleType) => {
   return(
     <article className={`${Article_styles.article}`}>
-      <h1>{postData.title || <Skeleton />}</h1>
+      <h1>{postData.title}</h1>
       <div className={`${Articles_styles.category_tags}`}>
         <Link href={`/${postData.janle}`}><a className={`${Articles_styles.category_tag}`}>{ postData.view_janle }</a></Link>
         <Link href={`/${postData.janle}/${postData.category}`}><a className={`${Articles_styles.category_tag}`}>{ postData.view_category }</a></Link>

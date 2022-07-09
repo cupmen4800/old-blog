@@ -22,7 +22,6 @@ const Home:NextPage<{allPostsData: Array<postDataResult>}> = ({allPostsData}: {a
       let page_number = data['selected']; // クリックした部分のページ数が{selected: 2}のような形で返ってくる
       setOffset(page_number*perPage); // offsetを変更し、表示開始するアイテムの番号を変更
   }
-  console.log(allPostsData)
 
   const HTMLHead =
   <Head>

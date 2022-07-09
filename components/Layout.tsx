@@ -15,12 +15,12 @@ function Layout(props: Props) {
     return (
       <div className={styles.main}>
         <Header/>
-          <div className={styles.contents}>
-            <Side></Side>
-            <main className={styles.main_panel}>
-              {props.children}
-            </main>
-          </div>
+        <div className={styles.contents}>
+          <Side></Side>
+          <main className={styles.main_panel}>
+            {props.children}
+          </main>
+        </div>
         <Footer></Footer>
       </div>
     )

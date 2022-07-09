@@ -68,12 +68,12 @@ export function Header() {
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="https://www.youtube.com/channel/UCZX3bYOf9QoMix48D5bZYWQ"><a className={`${styles.ubuntu_light}`}>Youtube</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/all"><a className={`${styles.ubuntu_light}`}>All</a></Link></li>
             <li className={`${header_styles.nav_link} ${header_styles.ubuntu_light}`}><Link href="/about"><a className={`${styles.ubuntu_light}`}>About</a></Link></li>
-            <a onClick={toggleDisplay} className={`${styles.search_container} ${header_styles.pc_view_search_container}`} id={`${header_styles.pc_view_search_container}`}>
+            <button onClick={toggleDisplay} className={`${styles.search_container} ${header_styles.pc_view_search_container}`} id={`${header_styles.pc_view_search_container}`} aria-label="Search Bar">
                 <div className={styles.search_bar} placeholder="Search" />
                 <div className={`${styles.search_button} ${header_styles.search_button}`}>
                     <FontAwesomeIcon icon={faSearch} size="1x" color="#FFF" />
                 </div>
-            </a>
+            </button>
             <button onClick={toggleDrawer} className={`${header_styles.menu_trigger}`}>
                 <span></span>
                 <span></span>
@@ -181,10 +181,7 @@ export const Side = () => {
               cupmen
             </h2>
             <p className={styles.source_han_sans_light}>
-              趣味プロの一般人
-            </p>
-            <p className={styles.source_han_sans_light}>
-              主にReactとPythonをやっています。
+              中2のN中生で主にReactとアプリ開発とかをやっています。
             </p>
           </a>
         </Link>
@@ -321,8 +318,8 @@ export const Article = (props: ArticleProps) => {
         <div><h2 className={`${styles.source_han_sans_bold} ${Articles_styles.Articleh2}`}>{ props.title }</h2>
           <p className={`${Articles_styles.timeDetail} ${styles.source_han_sans_light}`}><time dateTime={props.date}>投稿日： {props.date}</time></p>
           <div className={`${Articles_styles.source_han_sans_regular} ${Articles_styles.category_tags}`}>
-            <Link href={`/${props.janle}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ props.view_janle }</a></Link>
-            <Link href={`/${props.janle}/${props.category}`}><a className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ props.view_category }</a></Link>
+            <span className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ props.view_janle }</span>
+            <span className={`${styles.source_han_sans_regular} ${Articles_styles.category_tag}`}>{ props.view_category }</span>
           </div>
           <p className={`${Articles_styles.timeDetail} ${styles.source_han_sans_light}`}>{ props.detail }</p>
         </div>
@@ -482,7 +479,7 @@ interface SearchHitComponentProps extends SearchHitcomProps {
   onClick: () => void;
 }
 
-function SearchHitComponent({ hit }: SearchHitComponentProps): JSX.Element {
+const SearchHitComponent = ({ hit }: SearchHitComponentProps): JSX.Element => {
   return (
     <Link href={`/article/${hit.id}`}>
       <a className={Articles_styles.article} key={hit.data.date}>
